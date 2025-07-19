@@ -1,0 +1,360 @@
+diff --git a/main.tex b/main.tex
+index 1c1de6b..abb17e0 100644
+--- a/main.tex
++++ b/main.tex
+@@ -14,179 +14,119 @@
+ 
+ \begin{document}
+ 
+-% 背景浮水印层
++% 背景浮水印层 - 简化版本，更容易显示
+ \begin{tikzpicture}[remember picture, overlay]
+     % 定义颜色
+     \definecolor{watermarkblue}{RGB}{0, 122, 255}
+     \definecolor{watermarkgray}{RGB}{142, 142, 147}
+     \definecolor{watermarklight}{RGB}{200, 200, 220}
+     
+-    % 设置透明度 - 增加透明度使其更可见
+-    \tikzset{watermark/.style={opacity=0.08, very thin}}
++    % 设置透明度 - 更明显的透明度
++    \tikzset{watermark/.style={opacity=0.15, thin}}
+     
+-    % 电路图案 - 左上角
++    % 简单的电路图案 - 左上角
+     \begin{scope}[watermark, color=watermarkblue]
+-        % 电路板
+-        \draw (1, 10) -- (3, 10) -- (3, 9) -- (4, 9) -- (4, 8) -- (2, 8) -- (2, 7) -- (1, 7) -- cycle;
+-        \draw (1, 10) -- (1, 7);
+-        \draw (3, 10) -- (3, 9);
+-        \draw (4, 9) -- (4, 8);
+-        \draw (2, 8) -- (2, 7);
+-        
+-        % 电路连接点
+-        \fill (1, 10) circle (0.1);
+-        \fill (3, 10) circle (0.1);
+-        \fill (4, 9) circle (0.1);
+-        \fill (2, 8) circle (0.1);
+-        \fill (1, 7) circle (0.1);
+-        
+-        % 电路线
+-        \draw (1, 10) -- (3, 10);
+-        \draw (3, 9) -- (4, 9);
+-        \draw (4, 8) -- (2, 8);
+-        \draw (2, 7) -- (1, 7);
++        \draw (0.5, 9.5) rectangle (2.5, 10.5);
++        \draw (0.5, 9.5) -- (2.5, 9.5);
++        \draw (0.5, 10) -- (2.5, 10);
++        \draw (0.5, 10.5) -- (2.5, 10.5);
++        \draw (1, 9.5) -- (1, 10.5);
++        \draw (1.5, 9.5) -- (1.5, 10.5);
++        \draw (2, 9.5) -- (2, 10.5);
++        \fill (0.5, 9.5) circle (0.05);
++        \fill (2.5, 9.5) circle (0.05);
++        \fill (0.5, 10.5) circle (0.05);
++        \fill (2.5, 10.5) circle (0.05);
+     \end{scope}
+     
+-    % 大脑图案 - 右上角
++    % 简单的大脑图案 - 右上角
+     \begin{scope}[watermark, color=watermarkgray]
+-        % 大脑轮廓
+-        \draw (6, 10) .. controls (6.5, 10.5) and (7, 10.3) .. (7.5, 10) 
+-              .. controls (8, 9.7) and (8.2, 9.2) .. (8, 8.8)
+-              .. controls (7.8, 8.4) and (7.5, 8.2) .. (7, 8.5)
+-              .. controls (6.5, 8.8) and (6.2, 9.2) .. (6, 9.5)
+-              .. controls (5.8, 9.8) and (5.5, 10.2) .. (6, 10);
+-        
+-        % 大脑褶皱
+-        \draw (6.2, 9.8) -- (6.8, 9.6);
+-        \draw (6.3, 9.5) -- (6.9, 9.3);
+-        \draw (6.4, 9.2) -- (6.7, 9.0);
+-        \draw (6.1, 9.0) -- (6.6, 8.8);
++        \draw (6.5, 9.5) .. controls (7, 10) and (7.5, 10) .. (8, 9.5)
++              .. controls (8.5, 9) and (8.5, 8.5) .. (8, 8)
++              .. controls (7.5, 7.5) and (7, 7.5) .. (6.5, 8)
++              .. controls (6, 8.5) and (6, 9) .. (6.5, 9.5);
++        \draw (6.7, 9.3) -- (7.3, 9.1);
++        \draw (6.8, 8.8) -- (7.2, 8.6);
++        \draw (6.9, 8.3) -- (7.1, 8.1);
+     \end{scope}
+     
+-    % 原子图案 - 左下角
++    % 简单的原子图案 - 左下角
+     \begin{scope}[watermark, color=watermarklight]
+-        % 原子核
+-        \fill (1, 2) circle (0.3);
+-        
+-        % 电子轨道
+-        \draw[dashed] (1, 2) circle (1.2);
+-        \draw[dashed] (1, 2) circle (1.8);
+-        \draw[dashed] (1, 2) circle (2.4);
+-        
+-        % 电子
+-        \fill (1, 3.2) circle (0.1);
+-        \fill (2.2, 1) circle (0.1);
+-        \fill (0.8, 0.8) circle (0.1);
+-        \fill (2.4, 2.8) circle (0.1);
+-        \fill (0.6, 3.4) circle (0.1);
+-        \fill (2.6, 1.6) circle (0.1);
++        \fill (0.5, 1.5) circle (0.2);
++        \draw[dashed] (0.5, 1.5) circle (0.8);
++        \draw[dashed] (0.5, 1.5) circle (1.2);
++        \fill (0.5, 2.3) circle (0.08);
++        \fill (1.3, 1.5) circle (0.08);
++        \fill (0.5, 0.7) circle (0.08);
++        \fill (1.7, 1.5) circle (0.08);
+     \end{scope}
+     
+-    % 更多电路元素 - 右下角
++    % 简单的芯片图案 - 右下角
+     \begin{scope}[watermark, color=watermarkblue]
+-        % 芯片图案
+-        \draw (6, 2) rectangle (8, 4);
+-        \draw (6.2, 2.2) rectangle (7.8, 3.8);
+-        
+-        % 引脚
+-        \draw (6, 2.5) -- (5.8, 2.5);
+-        \draw (6, 3) -- (5.8, 3);
+-        \draw (6, 3.5) -- (5.8, 3.5);
+-        \draw (8, 2.5) -- (8.2, 2.5);
+-        \draw (8, 3) -- (8.2, 3);
+-        \draw (8, 3.5) -- (8.2, 3.5);
+-        
+-        % 内部电路
+-        \draw (6.5, 2.5) -- (7.5, 2.5);
+-        \draw (6.5, 3) -- (7.5, 3);
+-        \draw (6.5, 3.5) -- (7.5, 3.5);
++        \draw (6.5, 1.5) rectangle (8.5, 3.5);
++        \draw (6.7, 1.7) rectangle (8.3, 3.3);
++        \draw (6.5, 2) -- (6.3, 2);
++        \draw (6.5, 2.5) -- (6.3, 2.5);
++        \draw (6.5, 3) -- (6.3, 3);
++        \draw (8.5, 2) -- (8.7, 2);
++        \draw (8.5, 2.5) -- (8.7, 2.5);
++        \draw (8.5, 3) -- (8.7, 3);
+     \end{scope}
+     
+-    % 中央科技元素
+-    \begin{scope}[watermark, color=watermarkgray]
+-        % 数据流
+-        \draw (4.5, 6) -- (5.5, 6);
+-        \draw (4.5, 5.8) -- (5.5, 5.8);
+-        \draw (4.5, 5.6) -- (5.5, 5.6);
+-        
+-        % 连接点
+-        \fill (4.5, 6) circle (0.05);
+-        \fill (5.5, 6) circle (0.05);
+-        \fill (4.5, 5.8) circle (0.05);
+-        \fill (5.5, 5.8) circle (0.05);
+-        \fill (4.5, 5.6) circle (0.05);
+-        \fill (5.5, 5.6) circle (0.05);
+-    \end{scope}
+-    
+-    % 量子计算元素 - 中上方
+-    \begin{scope}[watermark, color=watermarklight]
+-        % 量子比特
+-        \draw (4, 8.5) circle (0.2);
+-        \draw (4.5, 8.5) circle (0.2);
+-        \draw (5, 8.5) circle (0.2);
+-        
+-        % 量子纠缠
+-        \draw[dashed] (4, 8.5) -- (4.5, 8.5);
+-        \draw[dashed] (4.5, 8.5) -- (5, 8.5);
+-        
+-        % 测量符号
+-        \draw (4.25, 8.3) -- (4.25, 8.7);
+-        \draw (4.75, 8.3) -- (4.75, 8.7);
+-    \end{scope}
+-    
+-    % 神经网络节点 - 中下方
++    % 简单的神经网络 - 中央
+     \begin{scope}[watermark, color=watermarkblue]
+-        % 输入层
+-        \fill (3.5, 4.5) circle (0.1);
+-        \fill (3.5, 4.2) circle (0.1);
+-        \fill (3.5, 3.9) circle (0.1);
+-        
+-        % 隐藏层
+-        \fill (4.5, 4.4) circle (0.1);
+-        \fill (4.5, 4.1) circle (0.1);
+-        \fill (4.5, 3.8) circle (0.1);
+-        
+-        % 输出层
+-        \fill (5.5, 4.2) circle (0.1);
+-        
+-        % 连接线
+-        \draw (3.5, 4.5) -- (4.5, 4.4);
+-        \draw (3.5, 4.5) -- (4.5, 4.1);
+-        \draw (3.5, 4.5) -- (4.5, 3.8);
+-        \draw (3.5, 4.2) -- (4.5, 4.4);
+-        \draw (3.5, 4.2) -- (4.5, 4.1);
+-        \draw (3.5, 4.2) -- (4.5, 3.8);
+-        \draw (3.5, 3.9) -- (4.5, 4.4);
+-        \draw (3.5, 3.9) -- (4.5, 4.1);
+-        \draw (3.5, 3.9) -- (4.5, 3.8);
+-        
+-        \draw (4.5, 4.4) -- (5.5, 4.2);
+-        \draw (4.5, 4.1) -- (5.5, 4.2);
+-        \draw (4.5, 3.8) -- (5.5, 4.2);
++        \fill (4, 6) circle (0.1);
++        \fill (4, 5.5) circle (0.1);
++        \fill (4, 5) circle (0.1);
++        \fill (5, 6) circle (0.1);
++        \fill (5, 5.5) circle (0.1);
++        \fill (5, 5) circle (0.1);
++        \fill (6, 5.5) circle (0.1);
++        \draw (4, 6) -- (5, 6);
++        \draw (4, 6) -- (5, 5.5);
++        \draw (4, 6) -- (5, 5);
++        \draw (4, 5.5) -- (5, 6);
++        \draw (4, 5.5) -- (5, 5.5);
++        \draw (4, 5.5) -- (5, 5);
++        \draw (4, 5) -- (5, 6);
++        \draw (4, 5) -- (5, 5.5);
++        \draw (4, 5) -- (5, 5);
++        \draw (5, 6) -- (6, 5.5);
++        \draw (5, 5.5) -- (6, 5.5);
++        \draw (5, 5) -- (6, 5.5);
+     \end{scope}
+     
+-    % 数学符号 - 分散分布
++    % 简单的数学符号 - 分散分布
+     \begin{scope}[watermark, color=watermarkgray]
+         % 积分符号
+-        \draw (2.5, 6.5) -- (2.5, 7.5);
+-        \draw (2.3, 6.5) -- (2.7, 6.5);
+-        \draw (2.3, 7.5) -- (2.7, 7.5);
++        \draw (2, 7) -- (2, 8);
++        \draw (1.8, 7) -- (2.2, 7);
++        \draw (1.8, 8) -- (2.2, 8);
+         
+         % 求和符号
+-        \draw (7.5, 6.5) circle (0.3);
+-        \draw (7.2, 6.5) -- (7.8, 6.5);
+-        \draw (7.5, 6.2) -- (7.5, 6.8);
++        \draw (7, 7) circle (0.2);
++        \draw (6.8, 7) -- (7.2, 7);
++        \draw (7, 6.8) -- (7, 7.2);
+         
+         % 矩阵
+-        \draw (3, 1.5) rectangle (4, 2.5);
+-        \draw (3.2, 1.5) -- (3.2, 2.5);
+-        \draw (3.4, 1.5) -- (3.4, 2.5);
+-        \draw (3.6, 1.5) -- (3.6, 2.5);
+-        \draw (3.8, 1.5) -- (3.8, 2.5);
+-        \draw (3, 1.7) -- (4, 1.7);
+-        \draw (3, 1.9) -- (4, 1.9);
+-        \draw (3, 2.1) -- (4, 2.1);
+-        \draw (3, 2.3) -- (4, 2.3);
++        \draw (3, 2.5) rectangle (4, 3.5);
++        \draw (3.2, 2.5) -- (3.2, 3.5);
++        \draw (3.4, 2.5) -- (3.4, 3.5);
++        \draw (3.6, 2.5) -- (3.6, 3.5);
++        \draw (3.8, 2.5) -- (3.8, 3.5);
++        \draw (3, 2.7) -- (4, 2.7);
++        \draw (3, 2.9) -- (4, 2.9);
++        \draw (3, 3.1) -- (4, 3.1);
++        \draw (3, 3.3) -- (4, 3.3);
++    \end{scope}
++    
++    % 量子比特 - 中上方
++    \begin{scope}[watermark, color=watermarklight]
++        \draw (4, 8.5) circle (0.15);
++        \draw (4.5, 8.5) circle (0.15);
++        \draw (5, 8.5) circle (0.15);
++        \draw[dashed] (4, 8.5) -- (4.5, 8.5);
++        \draw[dashed] (4.5, 8.5) -- (5, 8.5);
+     \end{scope}
+ \end{tikzpicture}
+ 
+@@ -245,55 +185,55 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
+     \draw[fill=techblue] (-2, 3.2) rectangle (5.5, 3.4);
+     \node[anchor=west] at (6.2, 3.3) {\small Python (95\%)};
+     
+-    \draw[fill=techgray!20] (-2, 2.6) rectangle (6, 2.8);
+-    \draw[fill=techblue] (-2, 2.6) rectangle (5.2, 2.8);
+-    \node[anchor=west] at (6.2, 2.7) {\small C/C++ (87\%)};
+-    
+-    \draw[fill=techgray!20] (-2, 2.0) rectangle (6, 2.2);
+-    \draw[fill=techgreen] (-2, 2.0) rectangle (4.8, 2.2);
+-    \node[anchor=west] at (6.2, 2.1) {\small JS/TS (80\%)};
++    \draw[fill=techgray!20] (-2, 2.4) rectangle (6, 2.6);
++    \draw[fill=techblue] (-2, 2.4) rectangle (5.2, 2.6);
++    \node[anchor=west] at (6.2, 2.5) {\small C/C++ (87\%)};
+     
+-    \draw[fill=techgray!20] (-2, 1.4) rectangle (6, 1.6);
+-    \draw[fill=techgreen] (-2, 1.4) rectangle (4.5, 1.6);
+-    \node[anchor=west] at (6.2, 1.5) {\small Golang (75\%)};
++    \draw[fill=techgray!20] (-2, 1.6) rectangle (6, 1.8);
++    \draw[fill=techgreen] (-2, 1.6) rectangle (4.8, 1.8);
++    \node[anchor=west] at (6.2, 1.7) {\small JS/TS (80\%)};
+     
+     \draw[fill=techgray!20] (-2, 0.8) rectangle (6, 1.0);
+-    \draw[fill=techorange] (-2, 0.8) rectangle (4.2, 1.0);
+-    \node[anchor=west] at (6.2, 0.9) {\small Rust (70\%)};
++    \draw[fill=techgreen] (-2, 0.8) rectangle (4.5, 1.0);
++    \node[anchor=west] at (6.2, 0.9) {\small Golang (75\%)};
++    
++    \draw[fill=techgray!20] (-2, 0.0) rectangle (6, 0.2);
++    \draw[fill=techorange] (-2, 0.0) rectangle (4.2, 0.2);
++    \node[anchor=west] at (6.2, 0.1) {\small Rust (70\%)};
+     
+-    \draw[fill=techgray!20] (-2, 0.2) rectangle (6, 0.4);
+-    \draw[fill=techorange] (-2, 0.2) rectangle (4.0, 0.4);
+-    \node[anchor=west] at (6.2, 0.3) {\small Java (67\%)};
++    \draw[fill=techgray!20] (-2, -0.8) rectangle (6, -0.6);
++    \draw[fill=techorange] (-2, -0.8) rectangle (4.0, -0.6);
++    \node[anchor=west] at (6.2, -0.7) {\small Java (67\%)};
+     
+     % AI/ML 技能条
+-    \node[anchor=west] at (-2, -0.2) {\textbf{AI/ML Technologies}};
++    \node[anchor=west] at (-2, -1.6) {\textbf{AI/ML Technologies}};
+     
+-    \draw[fill=techgray!20] (-2, -1.0) rectangle (6, -0.8);
+-    \draw[fill=techpurple] (-2, -1.0) rectangle (5.8, -0.8);
+-    \node[anchor=west] at (6.2, -0.9) {\small TensorFlow (97\%)};
++    \draw[fill=techgray!20] (-2, -2.4) rectangle (6, -2.2);
++    \draw[fill=techpurple] (-2, -2.4) rectangle (5.8, -2.2);
++    \node[anchor=west] at (6.2, -2.3) {\small TensorFlow (97\%)};
+     
+-    \draw[fill=techgray!20] (-2, -1.6) rectangle (6, -1.4);
+-    \draw[fill=techpurple] (-2, -1.6) rectangle (5.5, -1.4);
+-    \node[anchor=west] at (6.2, -1.5) {\small PyTorch (92\%)};
++    \draw[fill=techgray!20] (-2, -3.2) rectangle (6, -3.0);
++    \draw[fill=techpurple] (-2, -3.2) rectangle (5.5, -3.0);
++    \node[anchor=west] at (6.2, -3.1) {\small PyTorch (92\%)};
+     
+-    \draw[fill=techgray!20] (-2, -2.2) rectangle (6, -2.0);
+-    \draw[fill=techblue] (-2, -2.2) rectangle (5.0, -2.0);
+-    \node[anchor=west] at (6.2, -2.1) {\small Quantum ML (83\%)};
++    \draw[fill=techgray!20] (-2, -4.0) rectangle (6, -3.8);
++    \draw[fill=techblue] (-2, -4.0) rectangle (5.0, -3.8);
++    \node[anchor=west] at (6.2, -3.9) {\small Quantum ML (83\%)};
+     
+     % 系统开发技能条
+-    \node[anchor=west] at (-2, -2.8) {\textbf{System Development}};
++    \node[anchor=west] at (-2, -4.8) {\textbf{System Development}};
+     
+-    \draw[fill=techgray!20] (-2, -3.6) rectangle (6, -3.4);
+-    \draw[fill=techgreen] (-2, -3.6) rectangle (5.3, -3.4);
+-    \node[anchor=west] at (6.2, -3.5) {\small Linux/Embedded (88\%)};
++    \draw[fill=techgray!20] (-2, -5.6) rectangle (6, -5.4);
++    \draw[fill=techgreen] (-2, -5.6) rectangle (5.3, -5.4);
++    \node[anchor=west] at (6.2, -5.5) {\small Linux/Embedded (88\%)};
+     
+-    \draw[fill=techgray!20] (-2, -4.2) rectangle (6, -4.0);
+-    \draw[fill=techgreen] (-2, -4.2) rectangle (5.0, -4.0);
+-    \node[anchor=west] at (6.2, -4.1) {\small Docker/Cloud (83\%)};
++    \draw[fill=techgray!20] (-2, -6.4) rectangle (6, -6.2);
++    \draw[fill=techgreen] (-2, -6.4) rectangle (5.0, -6.2);
++    \node[anchor=west] at (6.2, -6.3) {\small Docker/Cloud (83\%)};
+     
+-    \draw[fill=techgray!20] (-2, -4.8) rectangle (6, -4.6);
+-    \draw[fill=techorange] (-2, -4.8) rectangle (4.8, -4.6);
+-    \node[anchor=west] at (6.2, -4.7) {\small Database (80\%)};
++    \draw[fill=techgray!20] (-2, -7.2) rectangle (6, -7.0);
++    \draw[fill=techorange] (-2, -7.2) rectangle (4.8, -7.0);
++    \node[anchor=west] at (6.2, -7.1) {\small Database (80\%)};
+     
+ 
+     
