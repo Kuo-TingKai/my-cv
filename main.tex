@@ -241,6 +241,115 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 \end{tikzpicture}
 \end{center}
 
+\section*{Experience}\label{experience}
+
+% 时间轴样式
+\begin{tikzpicture}[remember picture, overlay]
+    % 定义颜色
+    \definecolor{timelineblue}{RGB}{0, 122, 255}
+    \definecolor{timelinegray}{RGB}{142, 142, 147}
+    
+    % 主时间轴线 - 调整位置和长度
+    \draw[timelineblue, thick] (-0.8, 0.5) -- (-0.8, -18);
+    
+    % 时间节点和连接线 - 重新调整位置
+    % 2024 Sep - now
+    \fill[timelineblue] (-0.8, 0.5) circle (3pt);
+    \draw[timelineblue, thick] (-0.8, 0.5) -- (-0.6, 0.5);
+    
+    % 2023 Dec - 2024 July
+    \fill[timelineblue] (-0.8, -3.5) circle (3pt);
+    \draw[timelineblue, thick] (-0.8, -3.5) -- (-0.6, -3.5);
+    
+    % 2023 Jan - Dec
+    \fill[timelineblue] (-0.8, -7.5) circle (3pt);
+    \draw[timelineblue, thick] (-0.8, -7.5) -- (-0.6, -7.5);
+    
+    % 2022 Sep - Dec
+    \fill[timelineblue] (-0.8, -11.5) circle (3pt);
+    \draw[timelineblue, thick] (-0.8, -11.5) -- (-0.6, -11.5);
+    
+    % 2022 Mar - Jul
+    \fill[timelineblue] (-0.8, -14.5) circle (3pt);
+    \draw[timelineblue, thick] (-0.8, -14.5) -- (-0.6, -14.5);
+    
+    % 2020 Jul - 2022 Jan
+    \fill[timelineblue] (-0.8, -17.5) circle (3pt);
+    \draw[timelineblue, thick] (-0.8, -17.5) -- (-0.6, -17.5);
+    
+    % 时间标签 - 重新调整位置
+    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, 0.5) {2024};
+    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -3.5) {2023-24};
+    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -7.5) {2023};
+    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -11.5) {2022};
+    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -14.5) {2022};
+    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -17.5) {2020-22};
+\end{tikzpicture}
+
+\vspace{0.5em}
+
+\subsection*{Senior engineer, IKG Team, 2024 Sep. - now}
+\begin{itemize}[noitemsep]
+    \item Develope browser-end multimedia player for video streams using FFmpeg, WebGPU,WebAssembly, accelerating streams with \textbf{NVIDIA encoder} and customizing\textbf{ AI-masking frames} from SRS\textbf{ mediaserver} 
+    \item Authentication for stream requests
+    \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller(MCU)}
+    \item Object storages for VODs with Tencent/BytePlus cloud services
+    \item Websockets/MQTT for game state machine message passing to Database (\textbf{PostgreSQL, MongoDB})
+    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Prometheus, google analytics, Sentry \textbf{on cloud server}
+    \item Monte Carlo for event simulations.
+    \item Technology stacks: Python/C++/\\Typescript/JavaScript/Go 
+    \item Documenting with \textbf{Confluence}
+    \item \textbf{Co-working with Europe team} for game projects
+\end{itemize}
+
+\vspace{0.8em}
+
+\subsection*{Senior engineer, Arcadyan Technology Co. Ltd., 2023 Dec.- 2024 July }
+\begin{itemize}[noitemsep]
+    \item Google xTS test suite for Android TV development, deployed and ran on Ubuntu Linux server
+    \item Test automation cluster build-up (24-48 physical devices) for passing over 1-million test cases nightly by \textbf{sharding}.
+    \item \textbf{Leadership:} Dispatch/Schedule remote contractors to complete a xTS test suite cycle per week
+    \item \textbf{OTA/eMMC firmware update}
+\end{itemize}
+
+\vspace{0.8em}
+
+\subsection*{Senior engineer, Marvell Technology Co. Ltd., 2023 Jan.-Dec.}
+\begin{itemize}[noitemsep]
+    \item SSD NVMe protocol front-end test/simulation tool development/test for \textbf{SSD controller firmware}, including device enumeration,function level hot reset features\textbf{ for cloud server storage}
+    \item Test tool GUI development with PySide2
+    \item Used qTest for regression test documenting, Jfrog for constructing CI upstream and software release. CI/CD and release.Wrote Java/Groovy/Shell scripts for CI/CD code on Jenkins.
+    \item Docker/Manylinux to make software release more portable
+    \item Slack/Jira for agile development
+\end{itemize}
+
+\vspace{0.8em}
+
+\subsection*{Software Freelancer, 2022 Sep.-Dec.}
+\begin{itemize}[noitemsep]
+    \item AI pose detection for body training posing correction with PoseNet.
+\end{itemize}
+
+\vspace{0.8em}
+
+\subsection*{\textbf{Algorithm engineer}, Tyrafos Technology, 2022 Mar.-Jul.}
+\begin{itemize}[noitemsep]
+    \item Real-time face recognition/fingerprint verification on embedded devices using neural network quantization in TF-lite
+    \item Real-time Image signal processing (ISP) such like HDR, 3A on mobile camera in OpenCV
+    \item Optical TRNG encryption module on mobile phones obeying NIST entropy extraction test suite
+\end{itemize}
+
+\vspace{0.8em}
+
+\subsection*{Full-stack engineer and Co-founder, Eunomia (a legal-tech startup), 2020 Jul.- 2022 Jan.}
+\begin{itemize}[noitemsep]
+    \item Build-up the GUI of a document editor with Sequence-to-Sequence model with PyTorch for NLP core, for the purpose of collaboration with lawyers and other workers in legal industry. Our WebUI was implemented with Vue.js/Quill.js, deployed on GCP/Firebase.
+    \item Obtained the 2nd place in the 1st Lawsnote Legaltech Hackathon, 2020, Taiwan.
+    \item Assisted by NCCU innovation center start-up incubator.
+\end{itemize}
+
+\hrule
+
 \section*{Skills}
 % A brief summary of your skills, exper, ience, and career goals.
 \subsection*{Programming Languages}
@@ -302,113 +411,6 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 \begin{itemize}[noitemsep]
     \item CI/CD: Jenkins/Groovy/Git action
     \item Test automation framework: Pytest/Postman/\\Selemium
-\end{itemize}
-
-\hrule
- 
-\section*{Experience}\label{experience}
-
-% 时间轴样式
-\begin{tikzpicture}[remember picture, overlay]
-    % 定义颜色
-    \definecolor{timelineblue}{RGB}{0, 122, 255}
-    \definecolor{timelinegray}{RGB}{142, 142, 147}
-    
-    % 主时间轴线 - 调整位置和长度
-    \draw[timelineblue, thick] (-0.8, 0.5) -- (-0.8, -18);
-    
-    % 时间节点和连接线 - 重新调整位置
-    % 2024 Sep - now
-    \fill[timelineblue] (-0.8, 0.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, 0.5) -- (-0.6, 0.5);
-    
-    % 2023 Dec - 2024 July
-    \fill[timelineblue] (-0.8, -3.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -3.5) -- (-0.6, -3.5);
-    
-    % 2023 Jan - Dec
-    \fill[timelineblue] (-0.8, -7.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -7.5) -- (-0.6, -7.5);
-    
-    % 2022 Sep - Dec
-    \fill[timelineblue] (-0.8, -11.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -11.5) -- (-0.6, -11.5);
-    
-    % 2022 Mar - Jul
-    \fill[timelineblue] (-0.8, -14.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -14.5) -- (-0.6, -14.5);
-    
-    % 2020 Jul - 2022 Jan
-    \fill[timelineblue] (-0.8, -17.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -17.5) -- (-0.6, -17.5);
-    
-    % 时间标签 - 重新调整位置
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, 0.5) {2024};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -3.5) {2023-24};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -7.5) {2023};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -11.5) {2022};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -14.5) {2022};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -17.5) {2020-22};
-\end{tikzpicture}
-
-\subsection*{Senior engineer, IKG Team, 2024 Sep. - now}
-\begin{itemize}[noitemsep]
-    \item Develope browser-end multimedia player for video streams using FFmpeg, WebGPU,WebAssembly, accelerating streams with \textbf{NVIDIA encoder} and customizing\textbf{ AI-masking frames} from SRS\textbf{ mediaserver} 
-    \item Authentication for stream requests
-    \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller(MCU)}
-    \item Object storages for VODs with Tencent/BytePlus cloud services
-    \item Websockets/MQTT for game state machine message passing to Database (\textbf{PostgreSQL, MongoDB})
-    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Prometheus, google analytics, Sentry \textbf{on cloud server}
-    \item Monte Carlo for event simulations.
-    \item Technology stacks: Python/C++/\\Typescript/JavaScript/Go 
-    \item Documenting with \textbf{Confluence}
-    \item \textbf{Co-working with Europe team} for game projects
-\end{itemize}
-
-\vspace{2em}
-
-\subsection*{Senior engineer, Arcadyan Technology Co. Ltd., 2023 Dec.- 2024 July }
-\begin{itemize}[noitemsep]
-    \item Google xTS test suite for Android TV development, deployed and ran on Ubuntu Linux server
-    \item Test automation cluster build-up (24-48 physical devices) for passing over 1-million test cases nightly by \textbf{sharding}.
-    \item \textbf{Leadership:} Dispatch/Schedule remote contractors to complete a xTS test suite cycle per week
-    \item \textbf{OTA/eMMC firmware update}
-\end{itemize}
-
-\vspace{2em}
-
-\subsection*{Senior engineer, Marvell Technology Co. Ltd., 2023 Jan.-Dec.}
-\begin{itemize}[noitemsep]
-    \item SSD NVMe protocol front-end test/simulation tool development/test for \textbf{SSD controller firmware}, including device enumeration,function level hot reset features\textbf{ for cloud server storage}
-    \item Test tool GUI development with PySide2
-    \item Used qTest for regression test documenting, Jfrog for constructing CI upstream and software release. CI/CD and release.Wrote Java/Groovy/Shell scripts for CI/CD code on Jenkins.
-    \item Docker/Manylinux to make software release more portable
-    \item Slack/Jira for agile development
-\end{itemize}
-
-\vspace{2em}
-
-\subsection*{Software Freelancer, 2022 Sep.-Dec.}
-\begin{itemize}[noitemsep]
-    \item AI pose detection for body training posing correction with PoseNet.
-\end{itemize}
-
-\vspace{2em}
-
-\subsection*{\textbf{Algorithm engineer}, Tyrafos Technology, 2022 Mar.-Jul.}
-\begin{itemize}[noitemsep]
-    \item Real-time face recognition/fingerprint verification on embedded devices using neural network quantization in TF-lite
-    \item Real-time Image signal processing (ISP) such like HDR, 3A on mobile camera in OpenCV
-    \item Optical TRNG encryption module on mobile phones obeying NIST entropy extraction test suite
-\end{itemize}
-
-\vspace{2em}
-
-\subsection*{Full-stack engineer and Co-founder, Eunomia (a legal-tech startup), 2020 Jul.- 2022 Jan.}
-\begin{itemize}[noitemsep]
-    \item Build-up the GUI of a document editor with Sequence-to-Sequence model with PyTorch for NLP core, for the purpose of collaboration with lawyers and other workers in legal industry. Our WebUI was implemented with Vue.js/Quill.js, deployed on GCP/Firebase.
-    \item Obtained the 2nd place in the 1st Lawsnote Legaltech Hackathon, 2020, Taiwan.
-    \item Assisted by NCCU innovation center start-up incubator.
 \end{itemize}
 
 \hrule
