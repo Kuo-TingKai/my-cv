@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=0.75in}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{epigraph}
+
+\usepackage{multicol}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Kevin Ting-Kai Kuo}
+\end{center}
+
+\vspace{1em}
+
+% \section*{Contact Information}
+\begin{multicols*}{2}
+    
+
+
+% \columnbreak
+% % \section*{Motto}
+% \epigraph{Think different, connect the dots.}{\textit{Steve Jobs}}
+
+% {\footnotesize I am familiar with solving\textbf{ classical and quantum optical models}, numerically/symbolically, for instance (but not limited to):
+%     • Jaynes-Cumming model for two-photon strongly-correlated system. • Bosonic sampling approach to implement optical quantum computation • Using \textbf{FDTD} to simulate optical metamaterial camera lens in Tyrafos technology.\\}
+
+% \hrule
+
+\section*{Contact}
+{\footnotesize
+\begin{itemize}[noitemsep]
+    \item \href{https://github.com/Kuo-TingKai}{\textbf{\textcolor{blue}{Github}}}
+    \item \textbf{Phone:} +886-922-082-811
+    \item \textbf{Email:} KaiCoCat@proton.me
+    \item \href{https://medium.com/@nehsm30126}{\textbf{\textcolor{blue}{Medium}}} 
+    \item \href{https://www.overleaf.com/read/xzdtxtgxtnby#49163b}{\textbf{\textcolor{blue}{Article List}}}\\
+\end{itemize}
+}
+
+\section*{Fast Navigation}
+You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Development}}} and \href{#experience}{\textbf{\textcolor{blue}{Experience}}} section\\
+
+\hrule
+
+\section*{Skills}
+% A brief summary of your skills, exper, ience, and career goals.
+\subsection*{Programming Languages}
+% Todo 替以下Rust加上此超連結 https://github.com/xiph/rav1e/compare/master...Kuo-TingKai:rav1e:master
+\begin{itemize}[noitemsep]
+    \item \href{https://github.com/Kuo-TingKai/submarine-cable-monitor}{\textbf{\textcolor{blue}{Python}}}, 
+    \href{https://github.com/Kuo-TingKai/cpp_linux_chat}{\textbf{\textcolor{blue}{C/C++}}}, 
+    \href{https://github.com/Kuo-TingKai/three-3d-game}{\textbf{\textcolor{blue}{Javascript/Typescript}}}, 
+    \href{https://github.com/Kuo-TingKai/golang-web3-app}{\textbf{\textcolor{blue}{Golang}}},
+    \href{https://github.com/xiph/rav1e/compare/master...Kuo-TingKai:rav1e:master}{\textbf{\textcolor{blue}{Rust}}},
+    \href{https://github.com/Kuo-TingKai/java-backend-cloud-maven-app}{\textbf{\textcolor{blue}{Java}}}, 
+    \href{https://github.com/Kuo-TingKai/lean4-basic-ag}{\textbf{\textcolor{blue}{Lean}}}, PHP, 
+    \href{https://github.com/Kuo-TingKai/RoR-app}{\textbf{\textcolor{blue}{Ruby on Rails}}}, 
+    Julia, Shell scripts, Mathematica, R
+\end{itemize}
+
+\subsection*{Working OS Platforms}
+\begin{itemize}[noitemsep]
+    \item Ubuntu Linux, CentOS Linux, Android Linux, RaspberryPi OS, Windows
+\end{itemize}
+
+\subsection*{DL/ML/HPC/Statatistics}
+
+\subsubsection*{DL Frameworks/AI compiler}
+\begin{itemize}[noitemsep]
+    \item Tensorflow:TF/TF-lite/\\Tensornetwork/Tensorboard/\\Tensorflow C++ API\\
+    Jax
+    \item Pytorch: torch/torch\_geometric
+    \item ONNX, MLIR
+    \item HPC tools: Pybind11/BLAS/OpenMP 
+\end{itemize}
+\subsubsection*{Algorithms}
+\begin{itemize}[noitemsep]
+    \item ML/DL theory\\ Especially, I am sophisticated at a family of \textbf{physics-inspired} algorithms called tensor network (also called tensor-train decomposition,TT, or higher order singular value decomposition, HOSVD), which are used in \textbf{LoRA in the LLM} field. 
+    \item Image signal processing (ISP) \\
+    Edge CV using pre-trained NN models then fine-tuned/migrate learning to in-firm data,\textbf{ quantized to FP int8 }and deployed on RK3399 SoC equipped with camera lens collaboratively RD with FocalTech, for the face verification system.\\
+    HDR tonemapping, color space conversion for CIS camera lens ISP pipeline (with OpenCV). Spherical aberration calibration for the robotic vacuum. \\
+    Circle/edge detection for the eye-moving instrument.  
+    \item \textbf{Quantum Machine Learning}\\ quantum-classical\textbf{ hybrid CNN architecture} implemented with Google Qiskit/Tensorflow/Pannylane/Strawberryfield running on IBMQ quantum server for solving the ground state energy of the molecule in the IBMQ Quantum Computing Hackathon.\\
+    \item \textbf{Statistics}\\ multivariate time series such like ARIMA model, VAR, GARCH etc, with ARIMA(R) and Statsmodel(Python). Currently I am interested in the generalized version of AIC/BIC call WAIC/WBIC using algebraic statistics (algebraic geometry + statistics) invented by Watanabe, Riken.
+    \item Numerical methods\\tensorization/Monte Carlo/Quantum Monte Carlo/Markov Chain Monte Carlo/Simulated annealing for solving combinatorical problem, e.g. the variant of travelling saleman problem (TSP) called QAOA, and physics problem ( phase transition classification and ground state solution).
+    \item Cryptography: randomness(entropy) extraction, optical-based TRNG implemented by LED packaged on circuit for the electric network data transfer, which was inspired by Samsung mobile phone hardware encryption module.
+\end{itemize}
+
+\section*{Software Development}\label{software-dev}
+\begin{itemize}[noitemsep]
+    \item Profiler: perfetto/logcat/protobuf on Android Linux platform.
+    \item \textbf{Real time, Low latency System design on Linux}: NVMe SSD controller tool development and test for several Linux distributions (Ubuntu/CentOS/RPI) using Pybind11 for binding top python API to C++ core library to call the NVMe/PCIe syscalls to the Linux kernel. Besides, we replaced the original ring buffer backend of  NVMe devices with IOUring/Liburing for better I/O performance.
+    \item Web: Vue/Node/Django/GCP/Firebase
+    \item Emulator/Simulator:Qemu(open-source)/\\AVD(Android)/Simics(Windriver) for SSD device development and test.
+    \item GUI: PyQt5, PySide2
+    \item \textbf{Cloud Container virtualization:Docker and Docker-compose}, LXC(Linux generic container technology), Proxmox
+    \item OpenTelemetry for monitoring/logging/telemetry:\\ Prometheus/Grafana/Datadog/Sentry
+    \item \textbf{Database: PostgreSQL, MongoDB}
+    \item Agile: Scrum, Jira
+\end{itemize}
+
+\section*{Test}
+\begin{itemize}[noitemsep]
+    \item CI/CD: Jenkins/Groovy/Git action
+    \item Test automation framework: Pytest/Postman/\\Selemium
+\end{itemize}
+
+\hrule
+ 
+\section*{Experience}\label{experience}
+
+\subsection*{Senior engineer, IKG Team, 2024 Sep. - now}
+\begin{itemize}[noitemsep]
+    \item Develope browser-end multimedia player for video streams using FFmpeg, WebGPU,WebAssembly, accelerating streams with \textbf{NVIDIA encoder} and customizing\textbf{ AI-masking frames} from SRS\textbf{ mediaserver} 
+    \item Authentication for stream requests
+    \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller(MCU)}
+    \item Object storages for VODs with Tencent/BytePlus cloud services
+    \item Websockets/MQTT for game state machine message passing to Database (\textbf{PostgreSQL, MongoDB})
+    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Prometheus, google analytics, Sentry \textbf{on cloud server}
+    \item Monte Carlo for event simulations.
+    \item Technology stacks: Python/C++/\\Typescript/JavaScript/Go 
+    \item Documenting with \textbf{Confluence}
+    \item \textbf{Co-working with Europe team} for game projects
+\end{itemize}
+
+\subsection*{Senior engineer, Arcadyan Technology Co. Ltd., 2023 Dec.- 2024 July }
+\begin{itemize}[noitemsep]
+    \item Google xTS test suite for Android TV development, deployed and ran on Ubuntu Linux server
+    \item Test automation cluster build-up (24-48 physical devices) for passing over 1-million test cases nightly by \textbf{sharding}.
+    \item \textbf{Leadership:} Dispatch/Schedule remote contractors to complete a xTS test suite cycle per week
+    \item \textbf{OTA/eMMC firmware update}
+\end{itemize}
+
+\subsection*{Senior engineer, Marvell Technology Co. Ltd., 2023 Jan.-Dec.}
+\begin{itemize}[noitemsep]
+    \item SSD NVMe protocol front-end test/simulation tool development/test for \textbf{SSD controller firmware}, including device enumeration,function level hot reset features\textbf{ for cloud server storage}
+    \item Test tool GUI development with PySide2
+    \item Used qTest for regression test documenting, Jfrog for constructing CI upstream and software release. CI/CD and release.Wrote Java/Groovy/Shell scripts for CI/CD code on Jenkins.
+    \item Docker/Manylinux to make software release more portable
+    \item Slack/Jira for agile development
+\end{itemize}
+
+\subsection*{Software Freelancer, 2022 Sep.-Dec.}
+\begin{itemize}[noitemsep]
+    \item AI pose detection for body training posing correction with PoseNet.
+\end{itemize}
+
+
+\subsection*{\textbf{Algorithm engineer}, Tyrafos Technology, 2022 Mar.-Jul.}
+\begin{itemize}[noitemsep]
+    \item Real-time face recognition/fingerprint verification on embedded devices using neural network quantization in TF-lite
+    \item Real-time Image signal processing (ISP) such like HDR, 3A on mobile camera in OpenCV
+    \item Optical TRNG encryption module on mobile phones obeying NIST entropy extraction test suite
+\end{itemize}
+
+\subsection*{Full-stack engineer and Co-founder, Eunomia (a legal-tech startup), 2020 Jul.- 2022 Jan.}
+\begin{itemize}[noitemsep]
+    \item Build-up the GUI of a document editor with Sequence-to-Sequence model with PyTorch for NLP core, for the purpose of collaboration with lawyers and other workers in legal industry. Our WebUI was implemented with Vue.js/Quill.js, deployed on GCP/Firebase.
+    \item Obtained the 2nd place in the 1st Lawsnote Legaltech Hackathon, 2020, Taiwan.
+    \item Assisted by NCCU innovation center start-up incubator.
+\end{itemize}
+
+\hrule
+
+\section*{Education}
+
+\subsection*{BA, Economics, National Chengchi University, 2016-2018}
+
+    \begin{itemize}[noitemsep]
+        \item RA (Ministry of Science and Technology), Taiwan Policy Center, 2017-2018
+        \item Graduate/undergraduate maths courses: advanced calculus, stochastic process, advanced probability, stochastic PDE (2016 summer school, NTU), differential geometry
+        \item Graduate/undergraduate econ courses: Financial time series, Econometrics, Game theory, Macroeconomics, Microeconomics
+        \item TWSIAM conference 2018, poster paper, forecasting for win rate of NBA teams using HMM model with Dirichlet prior implemented by R
+    \end{itemize}
+
+
+\subsection*{MA, Economics, National Chengchi University, 2018-2019 (incomplete)}
+
+    \begin{itemize}[noitemsep]
+        \item ICAPE 2020 Conference (San Diego), oral presentation: \textit{Shinn-Shyr Wang, Ting-Kai Kuo and Wen-Chieh Lee, National Chengchi University: Combating thick polar networks: is there any effective way other than the strategic network formation?} Contribution: theoretical proof/numerical simulation for studying opinion convergence speed of manipulated social networks with echo-chamber effect implemented by Networkx and Numpy. I also set-up a manipulated chatroom with Node.js and Firebase providing for experimenters to use and monitored the opinion dynamics from the back-end.
+        \item TA, principle of economics, 2018 autumn
+    
+        \item \textbf{RA, Music and Culture Technology Lab, Institute of Information Science, Academia Sinica, 2019}: Music score learning using graph neural network and topological data analysis with Tensorflow, Scikit-learn, Librosa.
+        
+    \end{itemize}
+
+\subsection*{MA, Applied Physics, National Chengchi University, 2019-2020 (incomplete, master thesis defense passed)}
+
+    \begin{itemize}[noitemsep]
+        \item RA, Condensed Matter Center, NTU/ Institute of Applied Physics, NCCU
+        \item TA, computational physics, 2019 spring, teaching quantum Monte Carlo
+        \item Research: tensorize neural networks on condensed matter physics and conventional supervised learning task (image recognition) implemented by Tensorflow/Keras/Tensornetwork
+        \item Courses: quantum computing, quantum mechanics, statistical mechanics, computational physics
+        \item Seminar project: implemented quantum exponential adder with qiskit in quantum computing course 
+    \end{itemize}
+
+\hrule
+
+\section*{Math/Physics/TCS Research Interest}
+\begin{itemize}[noitemsep]
+    \item Mathematica/Sagemath(Python) for symbolic/numerical computation for the Mathematical Physics.
+    \item Computer Automatic Proof in Lean4/Coq/\\Isabelle language.  
+    \item \textbf{ Currently, I am working with Dr. \href{https://www.bing.com/search?q=en-jui+kuo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg5MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgYIBBAAGEAyBggFEAAYQDIGCAYQRRg9MgYIBxBFGDwyBggIEEUYPNIBCDE2NjVqMGoxqAIAsAIA&FORM=ANAB01&PC=HCTS}{Kuo, En-Jui (UMD)} and Dr. \href{https://scholar.google.com.hk/citations?user=38TPAxMAAAAJ&hl=en}{Kam, Chon-Fai (SUNY Buffalo)} with: (1) Mack polynomial in string theory and (2) Hyperdeterminant in quantum entanglement, respectively. }
+\end{itemize}
+
+
+\end{multicols*}
+
+\end{document}
