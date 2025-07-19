@@ -8,6 +8,9 @@
 \usepackage{epigraph}
 
 \usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \begin{document}
 
@@ -38,7 +41,8 @@
     \item \textbf{Phone:} +886-922-082-811
     \item \textbf{Email:} KaiCoCat@proton.me
     \item \href{https://medium.com/@nehsm30126}{\textbf{\textcolor{blue}{Medium}}} 
-    \item \href{https://www.overleaf.com/read/xzdtxtgxtnby#49163b}{\textbf{\textcolor{blue}{Article List}}}\\
+    \item \href{https://www.overleaf.com/read/xzdtxtgxtnby#49163b}{\textbf{\textcolor{blue}{Article List}}}
+    \item \href{https://github.com/Kuo-TingKai/theorem-dream}{\textbf{\textcolor{blue}{The interactive website of my micro-novel}}}
 \end{itemize}
 }
 
@@ -46,6 +50,82 @@
 You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Development}}} and \href{#experience}{\textbf{\textcolor{blue}{Experience}}} section\\
 
 \hrule
+
+\section*{Technology Stack Dashboard}
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+    % 定义颜色
+    \definecolor{techblue}{RGB}{0, 122, 255}
+    \definecolor{techgreen}{RGB}{52, 199, 89}
+    \definecolor{techorange}{RGB}{255, 149, 0}
+    \definecolor{techred}{RGB}{255, 59, 48}
+    \definecolor{techpurple}{RGB}{175, 82, 222}
+    \definecolor{techgray}{RGB}{142, 142, 147}
+    
+    % 编程语言技能条
+    \node[anchor=west] at (-2, 4.0) {\textbf{Programming Languages}};
+    
+    \draw[fill=techgray!20] (-2, 3.2) rectangle (6, 3.4);
+    \draw[fill=techblue] (-2, 3.2) rectangle (5.5, 3.4);
+    \node[anchor=west] at (6.2, 3.3) {\small Python (95\%)};
+    
+    \draw[fill=techgray!20] (-2, 2.6) rectangle (6, 2.8);
+    \draw[fill=techblue] (-2, 2.6) rectangle (5.2, 2.8);
+    \node[anchor=west] at (6.2, 2.7) {\small C/C++ (87\%)};
+    
+    \draw[fill=techgray!20] (-2, 2.0) rectangle (6, 2.2);
+    \draw[fill=techgreen] (-2, 2.0) rectangle (4.8, 2.2);
+    \node[anchor=west] at (6.2, 2.1) {\small JS/TS (80\%)};
+    
+    \draw[fill=techgray!20] (-2, 1.4) rectangle (6, 1.6);
+    \draw[fill=techgreen] (-2, 1.4) rectangle (4.5, 1.6);
+    \node[anchor=west] at (6.2, 1.5) {\small Golang (75\%)};
+    
+    \draw[fill=techgray!20] (-2, 0.8) rectangle (6, 1.0);
+    \draw[fill=techorange] (-2, 0.8) rectangle (4.2, 1.0);
+    \node[anchor=west] at (6.2, 0.9) {\small Rust (70\%)};
+    
+    \draw[fill=techgray!20] (-2, 0.2) rectangle (6, 0.4);
+    \draw[fill=techorange] (-2, 0.2) rectangle (4.0, 0.4);
+    \node[anchor=west] at (6.2, 0.3) {\small Java (67\%)};
+    
+    % AI/ML 技能条
+    \node[anchor=west] at (-2, -0.2) {\textbf{AI/ML Technologies}};
+    
+    \draw[fill=techgray!20] (-2, -1.0) rectangle (6, -0.8);
+    \draw[fill=techpurple] (-2, -1.0) rectangle (5.8, -0.8);
+    \node[anchor=west] at (6.2, -0.9) {\small TensorFlow (97\%)};
+    
+    \draw[fill=techgray!20] (-2, -1.6) rectangle (6, -1.4);
+    \draw[fill=techpurple] (-2, -1.6) rectangle (5.5, -1.4);
+    \node[anchor=west] at (6.2, -1.5) {\small PyTorch (92\%)};
+    
+    \draw[fill=techgray!20] (-2, -2.2) rectangle (6, -2.0);
+    \draw[fill=techblue] (-2, -2.2) rectangle (5.0, -2.0);
+    \node[anchor=west] at (6.2, -2.1) {\small Quantum ML (83\%)};
+    
+    % 系统开发技能条
+    \node[anchor=west] at (-2, -2.8) {\textbf{System Development}};
+    
+    \draw[fill=techgray!20] (-2, -3.6) rectangle (6, -3.4);
+    \draw[fill=techgreen] (-2, -3.6) rectangle (5.3, -3.4);
+    \node[anchor=west] at (6.2, -3.5) {\small Linux/Embedded (88\%)};
+    
+    \draw[fill=techgray!20] (-2, -4.2) rectangle (6, -4.0);
+    \draw[fill=techgreen] (-2, -4.2) rectangle (5.0, -4.0);
+    \node[anchor=west] at (6.2, -4.1) {\small Docker/Cloud (83\%)};
+    
+    \draw[fill=techgray!20] (-2, -4.8) rectangle (6, -4.6);
+    \draw[fill=techorange] (-2, -4.8) rectangle (4.8, -4.6);
+    \node[anchor=west] at (6.2, -4.7) {\small Database (80\%)};
+    
+
+    
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{1em}
 
 \section*{Skills}
 % A brief summary of your skills, exper, ience, and career goals.
@@ -72,7 +152,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 
 \subsubsection*{DL Frameworks/AI compiler}
 \begin{itemize}[noitemsep]
-    \item Tensorflow:TF/TF-lite/\\Tensornetwork/Tensorboard/\\Tensorflow C++ API\\
+    \item Tensorflow:\href{https://github.com/Kuo-TingKai/TNNN}{\textbf{\textcolor{blue}{TF}}}/TF-lite/\\Tensornetwork/Tensorboard/\\Tensorflow C++ API\\
     Jax
     \item Pytorch: torch/torch\_geometric
     \item ONNX, MLIR
