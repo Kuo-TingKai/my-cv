@@ -243,70 +243,28 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 
 \section*{Experience}\label{experience}
 
-% 时间轴样式
-\begin{tikzpicture}[remember picture, overlay]
-    % 定义颜色
-    \definecolor{timelineblue}{RGB}{0, 122, 255}
-    \definecolor{timelinegray}{RGB}{142, 142, 147}
-    
-    % 主时间轴线 - 调整位置和长度
-    \draw[timelineblue, thick] (-0.8, 0.5) -- (-0.8, -18);
-    
-    % 时间节点和连接线 - 重新调整位置
-    % 2024 Sep - now
-    \fill[timelineblue] (-0.8, 0.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, 0.5) -- (-0.6, 0.5);
-    
-    % 2023 Dec - 2024 July
-    \fill[timelineblue] (-0.8, -3.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -3.5) -- (-0.6, -3.5);
-    
-    % 2023 Jan - Dec
-    \fill[timelineblue] (-0.8, -7.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -7.5) -- (-0.6, -7.5);
-    
-    % 2022 Sep - Dec
-    \fill[timelineblue] (-0.8, -11.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -11.5) -- (-0.6, -11.5);
-    
-    % 2022 Mar - Jul
-    \fill[timelineblue] (-0.8, -14.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -14.5) -- (-0.6, -14.5);
-    
-    % 2020 Jul - 2022 Jan
-    \fill[timelineblue] (-0.8, -17.5) circle (3pt);
-    \draw[timelineblue, thick] (-0.8, -17.5) -- (-0.6, -17.5);
-    
-    % 时间标签 - 重新调整位置
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, 0.5) {2024};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -3.5) {2023-24};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -7.5) {2023};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -11.5) {2022};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -14.5) {2022};
-    \node[anchor=east, font=\tiny, color=timelinegray] at (-1.0, -17.5) {2020-22};
-\end{tikzpicture}
-
-\vspace{0.5em}
-
 \subsection*{Senior engineer, IKG Team, 2024 Sep. - now}
 \begin{itemize}[noitemsep]
-    \item Develope browser-end multimedia player for video streams using FFmpeg, WebGPU,WebAssembly, accelerating streams with \textbf{NVIDIA encoder} and customizing\textbf{ AI-masking frames} from SRS\textbf{ mediaserver} 
+    \item Develope browser-end multimedia player for video streams using FFmpeg, WebGPU,WebAssembly, 
+    accelerating streams with \href{https://developer.nvidia.com/video-codec-sdk}{\textbf{\textcolor{blue}{NVIDIA encoder}}} 
+    and customizing\textbf{ AI-masking frames} from \href{https://github.com/ossrs/srs}{\textbf{\textcolor{blue}{SRS}}} \textbf{ mediaserver} 
     \item Authentication for stream requests
     \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller(MCU)}
-    \item Object storages for VODs with Tencent/BytePlus cloud services
+    \item \href{https://www.byteplus.com/en/product/tos}{\textbf{\textcolor{blue}{Object storages}}} for \href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{VODs}}} with \href{https://www.tencent.com/en-us/cloud}{\textbf{\textcolor{blue}{Tencent}}}/\href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{BytePlus}}} cloud services
     \item Websockets/MQTT for game state machine message passing to Database (\textbf{PostgreSQL, MongoDB})
-    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Prometheus, google analytics, Sentry \textbf{on cloud server}
-    \item Monte Carlo for event simulations.
+    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Grafana/Prometheus on AWS, 
+    google analytics, Sentry (Python/Javascript SDK) \textbf{on cloud server}
+    \item Monte Carlo for event stochastic process outcome simulations.
     \item Technology stacks: Python/C++/\\Typescript/JavaScript/Go 
     \item Documenting with \textbf{Confluence}
-    \item \textbf{Co-working with Europe team} for game projects
+    \item \textbf{Co-working with Europe team} for game projects without obstacles
 \end{itemize}
 
 \vspace{0.8em}
 
 \subsection*{Senior engineer, Arcadyan Technology Co. Ltd., 2023 Dec.- 2024 July }
 \begin{itemize}[noitemsep]
-    \item Google xTS test suite for Android TV development, deployed and ran on Ubuntu Linux server
+    \item \href{https://source.android.com/docs/compatibility/cts}{\textbf{\textcolor{blue}{Google xTS}}} test suite for \href{https://www.arcadyan.com/zh-hant/solutions/idea/stb/}{\textbf{\textcolor{blue}{Android TV}}} development, deployed and ran on Ubuntu Linux server
     \item Test automation cluster build-up (24-48 physical devices) for passing over 1-million test cases nightly by \textbf{sharding}.
     \item \textbf{Leadership:} Dispatch/Schedule remote contractors to complete a xTS test suite cycle per week
     \item \textbf{OTA/eMMC firmware update}
@@ -316,7 +274,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 
 \subsection*{Senior engineer, Marvell Technology Co. Ltd., 2023 Jan.-Dec.}
 \begin{itemize}[noitemsep]
-    \item SSD NVMe protocol front-end test/simulation tool development/test for \textbf{SSD controller firmware}, including device enumeration,function level hot reset features\textbf{ for cloud server storage}
+    \item \href{https://www.marvell.com/embedded-processors/armada-cp/}{\textbf{\textcolor{blue}{SSD NVMe controller}}} protocol front-end test/simulation tool development/test for \textbf{SSD controller firmware}, including device enumeration,function level hot reset features\textbf{ for cloud server storage}
     \item Test tool GUI development with PySide2
     \item Used qTest for regression test documenting, Jfrog for constructing CI upstream and software release. CI/CD and release.Wrote Java/Groovy/Shell scripts for CI/CD code on Jenkins.
     \item Docker/Manylinux to make software release more portable
@@ -343,7 +301,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 
 \subsection*{Full-stack engineer and Co-founder, Eunomia (a legal-tech startup), 2020 Jul.- 2022 Jan.}
 \begin{itemize}[noitemsep]
-    \item Build-up the GUI of a document editor with Sequence-to-Sequence model with PyTorch for NLP core, for the purpose of collaboration with lawyers and other workers in legal industry. Our WebUI was implemented with Vue.js/Quill.js, deployed on GCP/Firebase.
+    \item Build-up the \href{https://github.com/Kuo-TingKai/Eunomia}{\textbf{\textcolor{blue}{GUI}}} of a document editor with Sequence-to-Sequence model with PyTorch for NLP core, for the purpose of collaboration with lawyers and other workers in legal industry. Our WebUI was implemented with Vue.js/Quill.js, deployed on GCP/Firebase.
     \item Obtained the 2nd place in the 1st Lawsnote Legaltech Hackathon, 2020, Taiwan.
     \item Assisted by NCCU innovation center start-up incubator.
 \end{itemize}
@@ -388,16 +346,23 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     Edge CV using pre-trained NN models then fine-tuned/migrate learning to in-firm data,\textbf{ quantized to FP int8 }and deployed on RK3399 SoC equipped with camera lens collaboratively RD with FocalTech, for the face verification system.\\
     HDR tonemapping, color space conversion for CIS camera lens ISP pipeline (with OpenCV). Spherical aberration calibration for the robotic vacuum. \\
     Circle/edge detection for the eye-moving instrument.  
-    \item \textbf{Quantum Machine Learning}\\ quantum-classical\textbf{ hybrid CNN architecture} implemented with Google Qiskit/Tensorflow/Pannylane/Strawberryfield running on IBMQ quantum server for solving the ground state energy of the molecule in the IBMQ Quantum Computing Hackathon.\\
+    \item \href{https://github.com/Kuo-TingKai/IBMQcamp2020_VQE_team}{\textbf{Quantum Machine Learning}\\ quantum-classical\textbf{ hybrid CNN architecture}} implemented with Google Qiskit/Tensorflow/Pannylane/Strawberryfield running on IBMQ quantum server for solving the ground state energy of the molecule in the IBMQ Quantum Computing Hackathon.\\
     \item \textbf{Statistics}\\ multivariate time series such like ARIMA model, VAR, GARCH etc, with ARIMA(R) and Statsmodel(Python). Currently I am interested in the generalized version of AIC/BIC call WAIC/WBIC using algebraic statistics (algebraic geometry + statistics) invented by Watanabe, Riken.
     \item Numerical methods\\tensorization/Monte Carlo/Quantum Monte Carlo/Markov Chain Monte Carlo/Simulated annealing for solving combinatorical problem, e.g. the variant of travelling saleman problem (TSP) called QAOA, and physics problem ( phase transition classification and ground state solution).
     \item Cryptography: randomness(entropy) extraction, optical-based TRNG implemented by LED packaged on circuit for the electric network data transfer, which was inspired by Samsung mobile phone hardware encryption module.
 \end{itemize}
 
+\vspace{-15em}
 \section*{Software Development}\label{software-dev}
+
+% \vspace{-10em}
 \begin{itemize}[noitemsep]
     \item Profiler: perfetto/logcat/protobuf on Android Linux platform.
-    \item \textbf{Real time, Low latency System design on Linux}: NVMe SSD controller tool development and test for several Linux distributions (Ubuntu/CentOS/RPI) using Pybind11 for binding top python API to C++ core library to call the NVMe/PCIe syscalls to the Linux kernel. Besides, we replaced the original ring buffer backend of  NVMe devices with IOUring/Liburing for better I/O performance.
+    \item \textbf{Real time, Low latency System design on Linux}: NVMe SSD controller tool development and test 
+    for several Linux distributions (Ubuntu/CentOS/RPI) using Pybind11 
+    for binding top python API to C++ core library to call the NVMe/PCIe syscalls to the Linux kernel.
+    Besides, we replaced the original ring buffer backend of  NVMe devices with IOUring/Liburing 
+    for better I/O performance. Use Intel/WindRiver \href{https://www.windriver.com/products/simics}{\textbf{\textcolor{blue}{Simics}}} during the development and test.
     \item Web: Vue/Node/Django/GCP/Firebase
     \item Emulator/Simulator:Qemu(open-source)/\\AVD(Android)/Simics(Windriver) for SSD device development and test.
     \item GUI: PyQt5, PySide2
@@ -407,13 +372,19 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item Agile: Scrum, Jira
 \end{itemize}
 
+% reduce the space between the two sections
+\vspace{-20em}
+
 \section*{Test}
+% \vspace{-10em}
 \begin{itemize}[noitemsep]
     \item CI/CD: Jenkins/Groovy/Git action
     \item Test automation framework: Pytest/Postman/\\Selemium
 \end{itemize}
 
 \hrule
+
+\columnbreak
 
 \section*{Education}
 
@@ -430,7 +401,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 \subsection*{MA, Economics, National Chengchi University, 2018-2019 (incomplete)}
 
     \begin{itemize}[noitemsep]
-        \item ICAPE 2020 Conference (San Diego), oral presentation: \textit{Shinn-Shyr Wang, Ting-Kai Kuo and Wen-Chieh Lee, National Chengchi University: Combating thick polar networks: is there any effective way other than the strategic network formation?} Contribution: theoretical proof/numerical simulation for studying opinion convergence speed of manipulated social networks with echo-chamber effect implemented by Networkx and Numpy. I also set-up a manipulated chatroom with Node.js and Firebase providing for experimenters to use and monitored the opinion dynamics from the back-end.
+        \item ICAPE 2020 Conference (San Diego), oral presentation: \href{https://ah.lib.nccu.edu.tw/item?item_id=163948&locale=en}{\textit{Shinn-Shyr Wang, Ting-Kai Kuo and Wen-Chieh Lee, National Chengchi University: Combating thick polar networks: is there any effective way other than the strategic network formation?}} Contribution: theoretical proof/numerical simulation for studying opinion convergence speed of manipulated social networks with echo-chamber effect implemented by Networkx and Numpy. I also set-up a manipulated chatroom with Node.js and Firebase providing for experimenters to use and monitored the opinion dynamics from the back-end.
         \item TA, principle of economics, 2018 autumn
     
         \item \textbf{RA, Music and Culture Technology Lab, Institute of Information Science, Academia Sinica, 2019}: Music score learning using graph neural network and topological data analysis with Tensorflow, Scikit-learn, Librosa.
