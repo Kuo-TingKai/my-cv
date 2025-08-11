@@ -12,6 +12,123 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
+% Add tcolorbox package for theorem-like boxes
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% Define theorem-like box styles
+\newtcolorbox{theorembox}{
+    enhanced,
+    colback=blue!5,
+    colframe=blue!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Theorem,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{definitionbox}{
+    enhanced,
+    colback=green!5,
+    colframe=green!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Contact,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{examplebox}{
+    enhanced,
+    colback=orange!5,
+    colframe=orange!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Example,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{skillbox}{
+    enhanced,
+    colback=purple!5,
+    colframe=purple!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Skills,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{experiencebox}{
+    enhanced,
+    colback=red!5,
+    colframe=red!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Experience,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{educationbox}{
+    enhanced,
+    colback=teal!5,
+    colframe=teal!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Education,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{researchbox}{
+    enhanced,
+    colback=brown!5,
+    colframe=brown!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Research Interest,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
 \begin{document}
 
 % 背景浮水印层 - 简化版本，更容易显示
@@ -150,7 +267,7 @@
 
 % \hrule
 
-\section*{Contact}
+\begin{definitionbox}
 {\footnotesize
 \begin{itemize}[noitemsep]
     \item \href{https://github.com/Kuo-TingKai}{\textbf{\textcolor{blue}{Github}}}
@@ -161,13 +278,15 @@
     \item \href{https://github.com/Kuo-TingKai/theorem-dream}{\textbf{\textcolor{blue}{The interactive website of my micro-novel}}}
 \end{itemize}
 }
+\end{definitionbox}
 
-\section*{Fast Navigation}
+\begin{examplebox}
 You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Development}}} and \href{#experience}{\textbf{\textcolor{blue}{Experience}}} section\\
+\end{examplebox}
 
 \hrule
 
-\section*{Technology Stack Dashboard}
+\begin{theorembox}
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
     % 定义颜色
@@ -240,9 +359,9 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 
 \end{tikzpicture}
 \end{center}
+\end{theorembox}
 
-\section*{Experience}\label{experience}
-
+\begin{experiencebox}\label{experience}
 \subsection*{Senior engineer, IKG Team, 2024 Sep. - now}
 \begin{itemize}[noitemsep]
     \item Develope browser-end multimedia player for video streams using FFmpeg, WebGPU,WebAssembly, 
@@ -250,7 +369,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     and customizing\textbf{ AI-masking frames} from \href{https://github.com/ossrs/srs}{\textbf{\textcolor{blue}{SRS}}} \textbf{ mediaserver} 
     \item Authentication for stream requests
     \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller(MCU)}
-    \item \href{https://www.byteplus.com/en/product/tos}{\textbf{\textcolor{blue}{Object storages}}} for \href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{VODs}}} with \href{https://www.tencent.com/en-us/cloud}{\textbf{\textcolor{blue}{Tencent}}}/\href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{BytePlus}}} cloud services
+    \item \href{https://www.byteplus.com/en/product/tos}{\textbf{\textcolor{blue}{Object storages}}} for \href{https://www.overleaf.com/read/xzdtxtgxtnby#49163b}{\textbf{\textcolor{blue}{VODs}}} with \href{https://www.tencent.com/en-us/cloud}{\textbf{\textcolor{blue}{Tencent}}}/\href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{BytePlus}}} cloud services
     \item Websockets/MQTT for game state machine message passing to Database (\textbf{PostgreSQL, MongoDB})
     \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Grafana/Prometheus on AWS, 
     google analytics, Sentry (Python/Javascript SDK) \textbf{on cloud server}
@@ -260,7 +379,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item \textbf{Co-working with Europe team} for game projects without obstacles
 \end{itemize}
 
-\vspace{0.8em}
+\vspace{0.3em}
 
 \subsection*{Senior engineer, Arcadyan Technology Co. Ltd., 2023 Dec.- 2024 July }
 \begin{itemize}[noitemsep]
@@ -270,7 +389,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item \textbf{OTA/eMMC firmware update}
 \end{itemize}
 
-\vspace{0.8em}
+\vspace{0.3em}
 
 \subsection*{Senior engineer, Marvell Technology Co. Ltd., 2023 Jan.-Dec.}
 \begin{itemize}[noitemsep]
@@ -281,14 +400,14 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item Slack/Jira for agile development
 \end{itemize}
 
-\vspace{0.8em}
+\vspace{0.3em}
 
 \subsection*{Software Freelancer, 2022 Sep.-Dec.}
 \begin{itemize}[noitemsep]
     \item AI pose detection for body training posing correction with PoseNet.
 \end{itemize}
 
-\vspace{0.8em}
+\vspace{0.3em}
 
 \subsection*{\textbf{Algorithm engineer}, Tyrafos Technology, 2022 Mar.-Jul.}
 \begin{itemize}[noitemsep]
@@ -297,7 +416,7 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item Optical TRNG encryption module on mobile phones obeying NIST entropy extraction test suite
 \end{itemize}
 
-\vspace{0.8em}
+\vspace{0.3em}
 
 \subsection*{Full-stack engineer and Co-founder, Eunomia (a legal-tech startup), 2020 Jul.- 2022 Jan.}
 \begin{itemize}[noitemsep]
@@ -305,10 +424,11 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item Obtained the 2nd place in the 1st Lawsnote Legaltech Hackathon, 2020, Taiwan.
     \item Assisted by NCCU innovation center start-up incubator.
 \end{itemize}
+\end{experiencebox}
 
 \hrule
 
-\section*{Skills}
+\begin{skillbox}
 % A brief summary of your skills, exper, ience, and career goals.
 \subsection*{Programming Languages}
 % Todo 替以下Rust加上此超連結 https://github.com/xiph/rav1e/compare/master...Kuo-TingKai:rav1e:master
@@ -351,10 +471,10 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item Numerical methods\\tensorization/Monte Carlo/Quantum Monte Carlo/Markov Chain Monte Carlo/Simulated annealing for solving combinatorical problem, e.g. the variant of travelling saleman problem (TSP) called QAOA, and physics problem ( phase transition classification and ground state solution).
     \item Cryptography: randomness(entropy) extraction, optical-based TRNG implemented by LED packaged on circuit for the electric network data transfer, which was inspired by Samsung mobile phone hardware encryption module.
 \end{itemize}
+\end{skillbox}
 
-\vspace{-15em}
-\section*{Software Development}\label{software-dev}
-
+\vspace{-8em}
+\begin{theorembox}\label{software-dev}
 % \vspace{-10em}
 \begin{itemize}[noitemsep]
     \item Profiler: perfetto/logcat/protobuf on Android Linux platform.
@@ -371,23 +491,24 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     \item \textbf{Database: PostgreSQL, MongoDB}
     \item Agile: Scrum, Jira
 \end{itemize}
+\end{theorembox}
 
 % reduce the space between the two sections
-\vspace{-20em}
+\vspace{-10em}
 
-\section*{Test}
+\begin{examplebox}
 % \vspace{-10em}
 \begin{itemize}[noitemsep]
     \item CI/CD: Jenkins/Groovy/Git action
     \item Test automation framework: Pytest/Postman/\\Selemium
 \end{itemize}
+\end{examplebox}
 
 \hrule
 
 \columnbreak
 
-\section*{Education}
-
+\begin{educationbox}
 \subsection*{BA, Economics, National Chengchi University, 2016-2018}
 
     \begin{itemize}[noitemsep]
@@ -415,17 +536,19 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
         \item TA, computational physics, 2019 spring, teaching quantum Monte Carlo
         \item Research: tensorize neural networks on condensed matter physics and conventional supervised learning task (image recognition) implemented by Tensorflow/Keras/Tensornetwork
         \item Courses: quantum computing, quantum mechanics, statistical mechanics, computational physics
-        \item Seminar project: implemented quantum exponential adder with qiskit in quantum computing course 
-    \end{itemize}
+        \item Seminar project: implemented quantum exponential adder with qiskit in quantum computing course
+\end{itemize}
+\end{educationbox}
 
 \hrule
 
-\section*{Math/Physics/TCS Research Interest}
+\begin{researchbox}
 \begin{itemize}[noitemsep]
     \item Mathematica/Sagemath(Python) for symbolic/numerical computation for the Mathematical Physics.
     \item Computer Automatic Proof in Lean4/Coq/\\Isabelle language.  
-    \item \textbf{ Currently, I am working with Dr. \href{https://www.bing.com/search?q=en-jui+kuo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg5MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgYIBBAAGEAyBggFEAAYQDIGCAYQRRg9MgYIBxBFGDwyBggIEEUYPNIBCDE2NjVqMGoxqAIAsAIA&FORM=ANAB01&PC=HCTS}{Kuo, En-Jui (UMD)} and Dr. \href{https://scholar.google.com.hk/citations?user=38TPAxMAAAAJ&hl=en}{Kam, Chon-Fai (SUNY Buffalo)} with: (1) Mack polynomial in string theory and (2) Hyperdeterminant in quantum entanglement, respectively. }
+    \item \textbf{ Currently, I am working with Dr. \href{https://www.bing.com/search?q=en-jui+kuo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg5MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgYIBBAAGEAyBggFEAAYQDIGCAYQRRg9MgYIBxBFGDwyBggIEEUYPNIBCDE2NjVqMGoxqAIAsAIA&FORM=ANAB01&PC=HCTS}{Kuo, En-Jui (UMD)} and Dr. \href{https://scholar.google.com/hk/citations?user=38TPAxMAAAAJ&hl=en}{Kam, Chon-Fai (SUNY Buffalo)} with: (1) Mack polynomial in string theory and (2) Hyperdeterminant in quantum entanglement, respectively. }
 \end{itemize}
+\end{researchbox}
 
 
 \end{multicols*}
