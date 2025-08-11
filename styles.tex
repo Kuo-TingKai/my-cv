@@ -1,0 +1,147 @@
+% ========================================
+% CV Styles and Framebox Definitions
+% ========================================
+
+% Add tcolorbox package for theorem-like boxes
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% Define theorem-like box styles
+\newtcolorbox{theorembox}{
+    enhanced,
+    colback=blue!5,
+    colframe=blue!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Theorem,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{definitionbox}{
+    enhanced,
+    colback=green!5,
+    colframe=green!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Contact,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{examplebox}{
+    enhanced,
+    colback=orange!5,
+    colframe=orange!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Example,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{skillbox}{
+    enhanced,
+    colback=purple!5,
+    colframe=purple!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Skills,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{experiencebox}{
+    enhanced,
+    colback=red!5,
+    colframe=red!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Experience,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{educationbox}{
+    enhanced,
+    colback=teal!5,
+    colframe=teal!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Education,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+\newtcolorbox{researchbox}{
+    enhanced,
+    colback=brown!5,
+    colframe=brown!75,
+    boxrule=0.5pt,
+    arc=2pt,
+    fonttitle=\bfseries,
+    title=Research Interest,
+    before skip=0.5pt,
+    after skip=0.5pt,
+    left=1pt,
+    right=1pt,
+    top=1pt,
+    bottom=1pt
+}
+
+% ========================================
+% Common Commands and Definitions
+% ========================================
+
+% Define colors for consistent use
+\definecolor{techblue}{RGB}{0, 122, 255}
+\definecolor{techgreen}{RGB}{52, 199, 89}
+\definecolor{techorange}{RGB}{255, 149, 0}
+\definecolor{techred}{RGB}{255, 59, 48}
+\definecolor{techpurple}{RGB}{175, 82, 222}
+\definecolor{techgray}{RGB}{142, 142, 147}
+
+% Define watermark colors
+\definecolor{watermarkblue}{RGB}{0, 122, 255}
+\definecolor{watermarkgray}{RGB}{142, 142, 147}
+\definecolor{watermarklight}{RGB}{200, 200, 220}
+
+% ========================================
+% Page Layout and Geometry
+% ========================================
+
+% Set page margins
+\geometry{a4paper, margin=0.75in}
+
+% Set TikZ watermark style
+\tikzset{watermark/.style={opacity=0.15, thin}}

@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+
+% ========================================
+% Package Imports
+% ========================================
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{epigraph}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ========================================
+% Load Styles and Definitions
+% ========================================
+\input{styles}
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Background Watermark Layer
+% ========================================
+\begin{tikzpicture}[remember picture, overlay]
+    % 简单的电路图案 - 左上角
+    \begin{scope}[watermark, color=watermarkblue]
+        \draw (0.5, 9.5) rectangle (2.5, 10.5);
+        \draw (0.5, 9.5) -- (2.5, 9.5);
+        \draw (0.5, 10) -- (2.5, 10);
+        \draw (0.5, 10.5) -- (2.5, 10.5);
+        \draw (1, 9.5) -- (1, 10.5);
+        \draw (1.5, 9.5) -- (1.5, 10.5);
+        \draw (2, 9.5) -- (2, 10.5);
+        \fill (0.5, 9.5) circle (0.05);
+        \fill (2.5, 9.5) circle (0.05);
+        \fill (0.5, 10.5) circle (0.05);
+        \fill (2.5, 10.5) circle (0.05);
+    \end{scope}
+    
+    % 简单的大脑图案 - 右上角
+    \begin{scope}[watermark, color=watermarkgray]
+        \draw (6.5, 9.5) .. controls (7, 10) and (7.5, 10) .. (8, 9.5)
+              .. controls (8.5, 9) and (8.5, 8.5) .. (8, 8)
+              .. controls (7.5, 7.5) and (7, 7.5) .. (6.5, 8)
+              .. controls (6, 8.5) and (6, 9) .. (6.5, 9.5);
+        \draw (6.7, 9.3) -- (7.3, 9.1);
+        \draw (6.8, 8.8) -- (7.2, 8.6);
+        \draw (6.9, 8.3) -- (7.1, 8.1);
+    \end{scope}
+    
+    % 简单的原子图案 - 左下角
+    \begin{scope}[watermark, color=watermarklight]
+        \fill (0.5, 1.5) circle (0.2);
+        \draw[dashed] (0.5, 1.5) circle (0.8);
+        \draw[dashed] (0.5, 1.5) circle (1.2);
+        \fill (0.5, 2.3) circle (0.08);
+        \fill (1.3, 1.5) circle (0.08);
+        \fill (0.5, 0.7) circle (0.08);
+        \fill (1.7, 1.5) circle (0.08);
+    \end{scope}
+    
+    % 简单的芯片图案 - 右下角
+    \begin{scope}[watermark, color=watermarkblue]
+        \draw (6.5, 1.5) rectangle (8.5, 3.5);
+        \draw (6.7, 1.7) rectangle (8.3, 3.3);
+        \draw (6.5, 2) -- (6.3, 2);
+        \draw (6.5, 2.5) -- (6.3, 2.5);
+        \draw (6.5, 3) -- (6.3, 3);
+        \draw (8.5, 2) -- (8.7, 2);
+        \draw (8.5, 2.5) -- (8.7, 2.5);
+        \draw (8.5, 3) -- (8.7, 3);
+    \end{scope}
+    
+    % 简单的神经网络 - 中央
+    \begin{scope}[watermark, color=watermarkblue]
+        \fill (4, 6) circle (0.1);
+        \fill (4, 5.5) circle (0.1);
+        \fill (4, 5) circle (0.1);
+        \fill (5, 6) circle (0.1);
+        \fill (5, 5.5) circle (0.1);
+        \fill (5, 5) circle (0.1);
+        \fill (6, 5.5) circle (0.1);
+        \draw (4, 6) -- (5, 6);
+        \draw (4, 6) -- (5, 5.5);
+        \draw (4, 6) -- (5, 5);
+        \draw (4, 5.5) -- (5, 6);
+        \draw (4, 5.5) -- (5, 5.5);
+        \draw (4, 5.5) -- (5, 5);
+        \draw (4, 5) -- (5, 6);
+        \draw (4, 5) -- (5, 5.5);
+        \draw (4, 5) -- (5, 5);
+        \draw (5, 6) -- (6, 5.5);
+        \draw (5, 5.5) -- (6, 5.5);
+        \draw (5, 5) -- (6, 5.5);
+    \end{scope}
+    
+    % 简单的数学符号 - 分散分布
+    \begin{scope}[watermark, color=watermarkgray]
+        % 积分符号
+        \draw (2, 7) -- (2, 8);
+        \draw (1.8, 7) -- (2.2, 7);
+        \draw (1.8, 8) -- (2.2, 8);
+        
+        % 求和符号
+        \draw (7, 7) circle (0.2);
+        \draw (6.8, 7) -- (7.2, 7);
+        \draw (7, 6.8) -- (7, 7.2);
+        
+        % 矩阵
+        \draw (3, 2.5) rectangle (4, 3.5);
+        \draw (3.2, 2.5) -- (3.2, 3.5);
+        \draw (3.4, 2.5) -- (3.4, 3.5);
+        \draw (3.6, 2.5) -- (3.6, 3.5);
+        \draw (3.8, 2.5) -- (3.8, 3.5);
+        \draw (3, 2.7) -- (4, 2.7);
+        \draw (3, 2.9) -- (4, 2.9);
+        \draw (3, 3.1) -- (4, 3.1);
+        \draw (3, 3.3) -- (4, 3.3);
+    \end{scope}
+    
+    % 量子比特 - 中上方
+    \begin{scope}[watermark, color=watermarklight]
+        \draw (4, 8.5) circle (0.15);
+        \draw (4.5, 8.5) circle (0.15);
+        \draw (5, 8.5) circle (0.15);
+        \draw[dashed] (4, 8.5) -- (4.5, 8.5);
+        \draw[dashed] (4.5, 8.5) -- (5, 8.5);
+    \end{scope}
+\end{tikzpicture}
+
+% ========================================
+% Header
+% ========================================
+\begin{center}
+    \LARGE \textbf{Kevin Ting-Kai Kuo}
+\end{center}
+
+\vspace{1em}
+
+% ========================================
+% Main Content
+% ========================================
+\begin{multicols*}{2}
+
+% Load all CV content
+\input{content}
+
+\end{multicols*}
+
+\end{document}
