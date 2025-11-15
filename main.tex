@@ -260,7 +260,10 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
     accelerating streams with \href{https://developer.nvidia.com/video-codec-sdk}{\textbf{\textcolor{blue}{NVIDIA encoder}}} 
     and customizing\textbf{ AI-masking frames} from \href{https://github.com/ossrs/srs}{\textbf{\textcolor{blue}{SRS}}} \textbf{ mediaserver}. 
     One of the features is parsing \textbf{unixtime} values embedded in \textbf{H.264 SEI} fields by \textbf{FFmpeg} at the streaming end from the player's decoder side, 
-    used for synchronizing game states across different servers worldwide for the same game 
+    used for synchronizing game states across different servers worldwide for the same game. 
+    In the player design, utilized \textbf{WebRTC} protocol \textbf{STUN} related technologies to obtain players' real public IP information from their browser end, 
+    serving as the basis for real-time monitoring and analysis of streaming quality across global regions. 
+    Fine-tuned the player's \textbf{jitter buffer} during the player design process to optimize streaming latency issues
     \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Grafana/Prometheus on AWS, 
     google analytics, Sentry (Python/Javascript SDK) \textbf{on cloud server}. 
     Built private cloud monitoring infrastructure for all on-premise and cloud servers and connected devices in Taipei and Europe, including multiple \textbf{ZCAM cameras} used for streaming, using \textbf{Grafana dashboards} with data sources from \textbf{Prometheus/Loki/Telegraf/Zabbix}
