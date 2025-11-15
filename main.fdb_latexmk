@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1752971151.35853 "/Users/kevin.k/cv/main.tex" "main.pdf" "main" 1752971152.49812 0
-  "/Users/kevin.k/cv/main.tex" 1752971151.11824 21700 8318750022e17265cf19e5c23674210b ""
+["pdflatex"] 1763167434.96957 "/Users/kevin.k/mv_cv/my-cv/main.tex" "main.pdf" "main" 1763167436.23549 0
+  "/Users/kevin.k/mv_cv/my-cv/main.tex" 1763167431.3904 23840 2fee20eae022a12fd814b3c4d3d25c4f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm0900.tfm" 1136768653 1536 c4f439db76ef96a9c53bc437f35ffe20 ""
@@ -180,9 +180,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729762273.75931 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729762255 8221430 77892b18be7ce721900a10af197c05b4 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "main.aux" 1752971152.40906 328 9670c6a18caaa930381d19c5b60f4bb2 "pdflatex"
-  "main.out" 1752971152.13409 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1752971151.11824 21700 8318750022e17265cf19e5c23674210b ""
+  "main.aux" 1763167436.14174 328 9670c6a18caaa930381d19c5b60f4bb2 "pdflatex"
+  "main.out" 1763167435.84857 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1763167431.3904 23840 2fee20eae022a12fd814b3c4d3d25c4f ""
   (generated)
   "main.aux"
   "main.log"

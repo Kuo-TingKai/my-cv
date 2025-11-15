@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  20 JUL 2025 08:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  15 NOV 2025 08:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/kevin.k/cv/main.tex
-(/Users/kevin.k/cv/main.tex
+**/Users/kevin.k/mv_cv/my-cv/main.tex
+(/Users/kevin.k/mv_cv/my-cv/main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -578,69 +578,94 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 
-Overfull \hbox (10.54999pt too wide) in paragraph at lines 255--257
+Overfull \hbox (5.4154pt too wide) in paragraph at lines 252--253
+ [] 
+ []
+
+
+Overfull \hbox (10.54999pt too wide) in paragraph at lines 264--267
 \OT1/cmr/m/n/10.95 work TTFF/latency with Grafana/Prometheus
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--257
+Underfull \hbox (badness 10000) in paragraph at lines 264--267
 \OT1/cmr/m/n/10.95 on AWS, google an-a-lyt-ics, Sen-try
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--267
+\OT1/cmr/bx/n/10.95 dash-boards \OT1/cmr/m/n/10.95 with data sources from
  []
 
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \hbox (7.9127pt too wide) in paragraph at lines 316--325
+Overfull \hbox (7.9127pt too wide) in paragraph at lines 330--339
 [][][]\OT1/cmr/bx/n/10.95 Python[][]\OT1/cmr/m/n/10.95 , [][]\OT1/cmr/bx/n/10.95 C/C++[][]\OT1/cmr/m/n/10.95 , [][]\OT1/cmr/bx/n/10.95 Javascript/Typescript[][]\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 \OT1/cmr/m/n/10.95 quantum-classical \OT1/cmr/bx/n/10.95 hy-brid CNN ar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 \OT1/cmr/bx/n/10.95 chi-tec-ture[] \OT1/cmr/m/n/10.95 im-ple-mented with Google
  []
 
 
-Overfull \hbox (7.52347pt too wide) in paragraph at lines 349--350
-\OT1/cmr/m/n/10.95 Qiskit/Tensorflow/Pannylane/Strawberryfield
+Overfull \hbox (38.74745pt too wide) in paragraph at lines 363--364
+\OT1/cmr/bx/n/10.95 Qiskit\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Tensorflow\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Pannylane\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Strawberryfield
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
-\OT1/cmr/m/n/10.95 tensorization/Monte Carlo/Quantum
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
+\OT1/cmr/m/n/10.95 model, \OT1/cmr/bx/n/10.95 VAR\OT1/cmr/m/n/10.95 , \OT1/cmr/bx/n/10.95 GARCH \OT1/cmr/m/n/10.95 etc, with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
-\OT1/cmr/m/n/10.95 Monte Carlo/Markov Chain Monte
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
+\OT1/cmr/bx/n/10.95 ARIMA\OT1/cmr/m/n/10.95 (R) and \OT1/cmr/bx/n/10.95 Statsmodel\OT1/cmr/m/n/10.95 (Python).
  []
 
 [2]
-Overfull \hbox (25.49982pt too wide) in paragraph at lines 370--371
-[]\OT1/cmr/m/n/10.95 OpenTelemetry for mon-i-tor-ing/logging/telemetry: 
+Underfull \hbox (badness 10000) in paragraph at lines 365--366
+\OT1/cmr/m/n/10.95 tensorization/\OT1/cmr/bx/n/10.95 Monte Carlo\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Quantum
  []
 
 
-Overfull \hbox (9.1964pt too wide) in paragraph at lines 382--383
-[]\OT1/cmr/m/n/10.95 Test au-toma-tion frame-work: Pytest/Postman/ 
+Overfull \hbox (1.87383pt too wide) in paragraph at lines 379--380
+[]\OT1/cmr/m/n/10.95 Web: \OT1/cmr/bx/n/10.95 Vue\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Node\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Django\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 GCP\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Firebase 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
+\OT1/cmr/bx/n/10.95 AVD\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 Android\OT1/cmr/m/n/10.95 )/\OT1/cmr/bx/n/10.95 Simics\OT1/cmr/m/n/10.95 (Windriver) for
+ []
+
+
+Overfull \hbox (37.04988pt too wide) in paragraph at lines 383--384
+[]\OT1/cmr/bx/n/10.95 OpenTelemetry \OT1/cmr/m/n/10.95 for mon-i-tor-ing/logging/telemetry: 
+ []
+
+
+Overfull \hbox (20.19441pt too wide) in paragraph at lines 392--393
+[]\OT1/cmr/m/n/10.95 Test au-toma-tion frame-work: \OT1/cmr/bx/n/10.95 Pytest\OT1/cmr/m/n/10.95 /\OT1/cmr/bx/n/10.95 Postman\OT1/cmr/m/n/10.95 / 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
 []\OT1/cmr/m/n/10.95 Research: ten-sorize neu-ral net-works
  []
 
@@ -653,13 +678,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29938 strings out of 474116
- 714876 string characters out of 5743681
+ 29952 strings out of 474116
+ 715175 string characters out of 5743681
  1961187 words of memory out of 5000000
- 51829 multiletter control sequences out of 15000+600000
- 562124 words of font info for 49 fonts, out of 8000000 for 9000
+ 51843 multiletter control sequences out of 15000+600000
+ 562432 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,6n,107p,743b,742s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,6n,107p,752b,763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{experience} has been referenced but does not exist, replaced by a fixed one
 
@@ -667,10 +692,10 @@ pdfTeX warning (dest): name{experience} has been referenced but does not exist, 
 pdfTeX warning (dest): name{software-dev} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (4 pages, 143035 bytes).
+Output written on main.pdf (4 pages, 146963 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
+ 142 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
