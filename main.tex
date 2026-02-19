@@ -255,30 +255,37 @@ You can jump to \href{#software-dev}{\textbf{\textcolor{blue}{Software Developme
 \section*{Experience}\label{experience}
 
 \subsection*{Senior engineer, IKG Team, 2024 Sep. - now}
+{\footnotesize \textit{Role:} I am responsible for (1) machine control program development and integration with frontend/backend game events and error handling; (2) developing the core event synchronization logic in the streaming player; (3) developing the monitoring system for machine status.\par}
+\vspace{0.4em}
 \begin{itemize}[noitemsep]
-    \item Develope browser-end multimedia player for video streams using \textbf{FFmpeg}, WebGPU,WebAssembly, 
-    accelerating streams with \href{https://developer.nvidia.com/video-codec-sdk}{\textbf{\textcolor{blue}{NVIDIA encoder}}} 
-    and customizing\textbf{ AI-masking frames} from \href{https://github.com/ossrs/srs}{\textbf{\textcolor{blue}{SRS}}} \textbf{ mediaserver}. 
-    One of the features is parsing \textbf{unixtime} values embedded in \textbf{H.264 SEI} fields by \textbf{FFmpeg} at the streaming end from the player's decoder side, 
-    used for synchronizing game states across different servers worldwide for the same game. 
-    In the player design, utilized \textbf{WebRTC} protocol \textbf{STUN} related technologies to obtain players' real public IP information from their browser end, 
-    serving as the basis for real-time monitoring and analysis of streaming quality across global regions. 
+    %--- Core product: multimedia \& streaming ---
+    \item Develope browser-end multimedia player for video streams using \textbf{FFmpeg}, WebGPU,WebAssembly,
+    accelerating streams with \href{https://developer.nvidia.com/video-codec-sdk}{\textbf{\textcolor{blue}{NVIDIA encoder}}}
+    and customizing \textbf{AI-masking frames} from \href{https://github.com/ossrs/srs}{\textbf{\textcolor{blue}{SRS}}} \textbf{mediaserver}.
+    One of the features is parsing \textbf{unixtime} values embedded in \textbf{H.264 SEI} fields by \textbf{FFmpeg} at the streaming end from the player's decoder side,
+    used for synchronizing game states across different servers worldwide for the same game.
+    In the player design, utilized \textbf{WebRTC} protocol \textbf{STUN} related technologies to obtain players' real public IP information from their browser end,
+    serving as the basis for real-time monitoring and analysis of streaming quality across global regions.
     Fine-tuned the player's \textbf{jitter buffer} during the player design process to optimize streaming latency issues
-    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Grafana/Prometheus on AWS, 
-    google analytics, Sentry (Python/Javascript SDK) \textbf{on cloud server}. 
-    Built private cloud monitoring infrastructure for all on-premise and cloud servers and connected devices in Taipei and Europe, including multiple \textbf{ZCAM cameras} used for streaming, using \textbf{Grafana dashboards} with data sources from \textbf{Prometheus/Loki/Telegraf/Zabbix}
     \item Authentication for stream requests
-    \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller(MCU)}
     \item \href{https://www.byteplus.com/en/product/tos}{\textbf{\textcolor{blue}{Object storages}}} for \href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{VODs}}} with \href{https://www.tencent.com/en-us/cloud}{\textbf{\textcolor{blue}{Tencent}}}/\href{https://www.byteplus.com/en/product/vod}{\textbf{\textcolor{blue}{BytePlus}}} cloud services
     \item Websockets/\textbf{MQTT} for game state machine message passing to Database (\textbf{PostgreSQL, MongoDB}); MQTT also used to (1) integrate on-premise \textbf{computer vision} recognition and (2) drive \textbf{PLC} electromechanical actuation commands and status monitoring
-    \item Monte Carlo for event stochastic process outcome simulations.
-    \item Technology stacks: Python/C++/\\Typescript/JavaScript/Go 
-    \item Documenting with \textbf{Confluence}
-    \item \textbf{Co-working with Europe team} for game projects without obstacles
+    \item Serial port communication (USB, RS232) for game machine \textbf{micro-controller (MCU)}
+    \item Monte Carlo for event stochastic process outcome simulations
+    %--- Monitoring \& infrastructure ---
+    \item \textbf{Monitoring/Logging/Telemetry} for network TTFF/latency with Grafana/Prometheus on AWS,
+    google analytics, Sentry (Python/Javascript SDK) \textbf{on cloud server}.
+    Built private cloud monitoring infrastructure for all on-premise and cloud servers and connected devices in Taipei and Europe, including multiple \textbf{ZCAM cameras} used for streaming, using \textbf{Grafana dashboards} with data sources from \textbf{Prometheus/Loki/Telegraf/Zabbix}
+    %--- Tech stack ---
+    \item Technology stacks: Python/C++/Typescript/JavaScript/Go for multimedia player, hardware device controller, monitoring system, and related applications
+    %--- Process, tooling \& collaboration ---
     \item Spec-driven coding with \textbf{Cursor} and \textbf{.cursorrules} as constraints to deliver projects following software design patterns and clean code standards
     \item \textbf{GitHub Actions} workflow for automated deployment to target machines on each release and test run
     \item Familiar with \textbf{GitHub} code review and PR workflow to ensure code quality through open discussion and alignment between developers and leads on implementation
     \item \textbf{Jira} ticket management for feature development and bug-fixing progress to ensure transparency and traceability for the department, stakeholders, and PO
+    \item Documenting with \textbf{Confluence}: skilled at writing technical documentation; use plugins such as content, changelog, \textbf{mermaid} to produce professional, highly readable documents
+    \item \textbf{Co-working with Europe team} for game projects without obstacles
+    \item Participated in \textbf{ICE Barcelona 2026} (Europe's largest iGaming exhibition)
 \end{itemize}
 
 \vspace{0.8em}
