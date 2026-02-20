@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refactoring Complex Flows with a Hierarchical Design Pattern | Kevin Ting-Kai Kuo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px 30px;
+        }
+        .header h1 {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .header p { font-size: 0.95em; opacity: 0.9; }
+        .back-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .article {
+            padding: 32px 40px 40px;
+            line-height: 1.7;
+        }
+        .article h2 {
+            font-size: 1.4em;
+            color: #667eea;
+            margin: 32px 0 16px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .article h2:first-of-type { margin-top: 0; }
+        .article h3 {
+            font-size: 1.15em;
+            color: #764ba2;
+            margin: 24px 0 12px;
+        }
+        .article p { margin-bottom: 14px; }
+        .article ul {
+            margin: 12px 0 16px 24px;
+        }
+        .article li { margin-bottom: 8px; }
+        .article hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 28px 0;
+        }
+        .article table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.9em;
+        }
+        .article th, .article td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .article th {
+            background: #f5f5f5;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .article tr:nth-child(even) { background: #fafafa; }
+        .article pre {
+            background: #f6f8fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            line-height: 1.5;
+            margin: 16px 0;
+        }
+        .article code { font-family: 'Consolas', 'Monaco', monospace; }
+        .article strong { color: #333; }
+        @media (max-width: 768px) {
+            .article { padding: 24px 20px; }
+            .article table { font-size: 0.8em; }
+            .article th, .article td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Refactoring Complex Flows with a Hierarchical Design Pattern</h1>
+            <p>Behavior trees, Pub/Sub, adapters, and observers for scalable device control and workflow orchestration.</p>
+            <a href="index.html" class="back-link">← Back to CV / Home</a>
+        </div>
+        <article class="article">
+            <p><strong>How to make “device control + workflow orchestration” systems more extensible and maintainable using layered architecture and classic design patterns—without removing existing functionality.</strong></p>
+            <hr>
+            <p>Complex hardware/software control systems often end up with flow logic, hardware control, and external API calls tangled together: changing one part affects everything, and new developers struggle to onboard. This post outlines a <strong>practical refactoring plan based on a multi-level, heterogeneous design pattern</strong>: use <strong>behavior trees</strong> to orchestrate high-level flow, <strong>publish/subscribe</strong> to decouple communication, <strong>adapters</strong> to unify hardware interfaces, and <strong>observers</strong> to handle results and errors; <strong>strategy pattern</strong> is optional for rule extension. Terminology is kept generic so readers with basic technical background can map the ideas to their own projects.</p>
+            <hr>
+
+            <h2>1. What Problem Are We Solving?</h2>
+            <h3>Typical Starting Point</h3>
+            <p>Assume the project has already had an initial refactor and has:</p>
+            <ul>
+                <li>A single entry point and clear layering: e.g. <code>flow/</code> (workflow), <code>hardware/</code> (devices), <code>control_api/</code> (backend control API);</li>
+                <li>A “flow controller” that orchestrates one cycle, a state machine for flow states, and a “hardware provider” that wraps various devices;</li>
+                <li>Failover switching, WebSocket for control commands, CI/CD, and tests in place.</li>
+            </ul>
+            <p>So: <strong>all features exist, but high-level flow, mid-level communication, and hardware interfaces can be abstracted one more layer</strong> to make extension and maintenance easier.</p>
+            <h3>Goals of This Article</h3>
+            <ul>
+                <li><strong>Keep existing behavior</strong>: main flow, failover, error signaling, and deployment stay the same.</li>
+                <li><strong>Introduce design patterns by layer</strong>:
+                    <ul>
+                        <li><strong>System (high level)</strong>: Use a <strong>behavior tree (BT)</strong> to replace or wrap “state machine + flow orchestration,” and handle flow control, decisions, and recovery (retry / failover / terminate) in one place.</li>
+                        <li><strong>Mid-level communication</strong>: Abstract WebSocket/MQTT events into <strong>publish/subscribe (Pub/Sub)</strong> so modules interact asynchronously by topic/event and are less tightly coupled.</li>
+                        <li><strong>Hardware layer</strong>: Define the existing “hardware provider” clearly as an <strong>adapter</strong>: different devices expose a <strong>unified interface</strong>.</li>
+                        <li><strong>Results and events</strong>: When “result ready” or errors are detected, use <strong>observers</strong> to notify upper layers instead of calling “submit result” or send-error in many places.</li>
+                    </ul>
+                </li>
+                <li><strong>Optional</strong>: Use <strong>strategy pattern</strong> for different rules or cycle policies so that changing scoring or flow variants only swaps strategies, not the flow skeleton.</li>
+            </ul>
+            <hr>
+
+            <h2>2. Pattern and Architecture Mapping</h2>
+            <table>
+                <thead>
+                    <tr><th>Layer</th><th>Pattern</th><th>Before Refactor</th><th>After Refactor</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>System (high)</strong></td>
+                        <td>Behavior Tree (BT)</td>
+                        <td>Flow controller + state machine manually orchestrate one cycle (start → execute → detect → submit result → error handling).</td>
+                        <td>Use <strong>py_trees</strong> (or similar) to define “main cycle loop” and recovery (retry → failover → terminate). State machine can remain as BT leaf nodes or subtrees.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mid-level</strong></td>
+                        <td>Publish/Subscribe</td>
+                        <td>WebSocket callbacks call the flow controller directly; MQTT used inside hardware.</td>
+                        <td>Introduce an <strong>event bus</strong> and <strong>topics</strong>: cycle start, control command, failover, result ready, error, etc. Flow controller (or BT) subscribes and reacts; decoupled from backend API and MQTT.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hardware</strong></td>
+                        <td>Adapter</td>
+                        <td>“Hardware provider” abstraction + one concrete impl wrapping several sub-modules.</td>
+                        <td>Define a <strong>MachineAdapter</strong> interface. Main devices as MachineAdapter A/B; future serial devices as SerialDeviceAdapter. Upper layer only sees <code>trigger()</code> / <code>is_ready()</code> / <code>get_result()</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Results/events</strong></td>
+                        <td>Observer</td>
+                        <td>On “detect complete,” code directly calls “submit result”; on error, directly calls send-error / failover.</td>
+                        <td><strong>Result observer</strong>: on detect complete, publish “result ready”; subscribers submit. <strong>Error observer</strong>: on error, publish “error”; subscribers send error signal and/or trigger failover.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optional</strong></td>
+                        <td>Strategy</td>
+                        <td>Rules and flow live inside state machine / flow controller.</td>
+                        <td>Extract “cycle policy” or “scoring rule” into <strong>CyclePolicy</strong> / <strong>ScoringStrategy</strong>, injected by flow controller or BT. Change by swapping strategy, not flow.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Hardware layer (manual mode)</strong><br>If the system must support <strong>operator-triggered actions</strong>, implement an <strong>InputAdapter</strong> for the desk-side control unit: use a light HID input library to read the device and publish <code>OPERATOR_INPUT</code> on the event bus; the behavior tree or flow layer subscribes and drives manual flow.</p>
+            <h3>Layers and Event Flow (Concept)</h3>
+            <ul>
+                <li><strong>Entry</strong>: Single <code>main</code> assembles and starts the flow controller.</li>
+                <li><strong>System (high)</strong>: Behavior tree; flow controller ticks the BT; TreeBuilder builds the tree; BT nodes call adapters and publish/subscribe.</li>
+                <li><strong>Mid-level</strong>: EventBus as Pub/Sub hub; topics published by WebSocket/MQTT and subscribed by flow controller / BT nodes / observers.</li>
+                <li><strong>Hardware</strong>: MachineAdapter interface; each device is an adapter exposing <code>trigger()</code> / <code>is_ready()</code> / <code>get_result()</code>. InputAdapter (manual): polls HID → publishes events; publishes <code>OPERATOR_INPUT</code> to EventBus.</li>
+                <li><strong>Observers</strong>: e.g. “submit result” subscribes to “result ready” and calls backend API; “error recovery” subscribes to “error” and triggers failover.</li>
+                <li><strong>Connections</strong>: Solid lines = direct call/dependency; event flow = “publish → EventBus → subscriber.”</li>
+            </ul>
+            <hr>
+
+            <h2>3. Target Architecture (Conceptual Directory Layout)</h2>
+            <p>After refactoring, the directory can look like this (names can be adjusted per project):</p>
+            <pre><code>project_root/
+├── main.py
+├── flow/                          # Flow and behavior
+│   ├── flow_controller.py         # Assembles and ticks BT; subscribes to mid-level events
+│   ├── flow_state.py              # Optional: state definitions / leaf logic for BT
+│   └── behavior/                  # Behavior tree
+│       ├── tree_builder.py        # Builds main cycle BT (start → execute → detect → submit + recovery subtree)
+│       ├── nodes/                 # Custom BT nodes (call adapter, submit result, trigger failover, etc.)
+│       └── blackboard.py          # (Optional) BT shared data: cycle_id, result, error_type
+├── middleware/                    # Mid-level Pub/Sub
+│   ├── event_bus.py               # subscribe(topic, callback) / publish(topic, data)
+│   └── topics.py                  # Topic constants: LAUNCH, CONTROL_COMMAND, SWITCH, RESULT_READY, ERROR, OPERATOR_INPUT
+├── hardware/                      # Adapter layer
+│   ├── base_provider.py           # MachineAdapter: trigger(), is_ready(), get_result()
+│   ├── hardware_factory.py        # Returns adapter instances (main / serial / optional input)
+│   ├── primary_provider.py        # Main MachineAdapter: wraps vibration + sensor, etc.
+│   ├── serial_provider.py         # (Optional) Serial device adapter
+│   └── input_adapter.py           # (Manual mode) InputAdapter: read desk HID, publish OPERATOR_INPUT
+├── control_api/                   # Backend control API
+│   ├── control_command_client.py
+│   ├── switch_flow.py             # Failover
+│   ├── pending_result_store.py
+│   └── ...
+└── requirements.txt               # Add py_trees if using it</code></pre>
+            <p><strong>Dependency direction</strong>: <code>main</code> → <code>flow_controller</code> → <code>behavior</code> (BT) → <code>middleware/event_bus</code>, <code>hardware/*</code> (adapters). Backend API is only called by BT nodes or event_bus subscribers; it does not depend on flow/behavior.</p>
+            <hr>
+
+            <h2>3.1 Operator Manual Mode and Input Adapter (Optional Reading)</h2>
+            <p>If the system is currently <strong>automatic</strong> and you want to support <strong>operator-triggered actions</strong>, add the desk-side control unit to the hardware layer and use a <strong>lightweight HID input library</strong> as the input source.</p>
+            <h3>Why a Light HID Library Instead of a Large Robot/ROS Stack?</h3>
+            <ul>
+                <li><strong>Large meta-frameworks</strong>: standardized, distributed, industrial-grade, but heavy for “read desk buttons only.”</li>
+                <li><strong>Light HID library</strong>: focused on HID devices, small, easy to integrate, good as a single input-adapter node alongside the existing behavior tree and EventBus.</li>
+            </ul>
+            <p>So: <strong>do not</strong> make the input library the center of the system; use it only in the hardware layer as the implementation of an <strong>input adapter</strong>, coexisting with “behavior tree + EventBus.”</p>
+            <h3>Place in the Architecture</h3>
+            <p><strong>Layer</strong>: Still hardware · adapter. <strong>MachineAdapter</strong>: trigger / is_ready / get_result (execution and detection devices). <strong>InputAdapter</strong>: only poll HID → publish events; its contract is “publish <code>OPERATOR_INPUT</code> to EventBus.”</p>
+            <p><strong>Wiring</strong>: InputAdapter polls HID; on button press, <code>event_bus.publish(OPERATOR_INPUT, { button_id, action, ... })</code>; BT or flow controller subscribes to <code>OPERATOR_INPUT</code> and drives manual flow. Manual vs automatic can be switched via <code>--mode auto | manual</code> or config.</p>
+            <hr>
+
+            <h2>4. Phased Refactoring (Conceptual Steps)</h2>
+            <h3>Phase 0: Preparation and Dependencies</h3>
+            <ul>
+                <li>Add behavior tree library (e.g. <code>py_trees</code>), create <code>middleware</code> and <code>behavior</code> directories; <strong>do not change current flow behavior</strong>.</li>
+                <li>Implement a simple subscribe/publish in <code>event_bus</code>; define topic constants in <code>topics</code>.</li>
+                <li>Done when: project runs, existing tests pass, only new dependencies and empty modules added.</li>
+            </ul>
+            <h3>Phase 1: Mid-Level Pub/Sub and Event Wiring</h3>
+            <ul>
+                <li>Have WebSocket and internal flow interact via “publish event” and “subscribe to event.”</li>
+                <li>On “cycle start” / “control command” / “failover,” use <code>event_bus.publish(...)</code> instead of direct callbacks; flow controller subscribes to these topics.</li>
+                <li>Define and publish “result ready,” “error,” etc.; subscribers use them for logging, counting, or future BT nodes.</li>
+                <li>Done when: main flow is event-driven, behavior matches pre-refactor, no “WebSocket callback directly calling flow controller” coupling.</li>
+            </ul>
+            <h3>Phase 2: Hardware Layer as Adapter</h3>
+            <ul>
+                <li>In base layer define <strong>MachineAdapter</strong>: at least <code>trigger()</code>, <code>is_ready()</code>, <code>get_result()</code>.</li>
+                <li>Rename/document existing main hardware wrapper as a concrete Adapter (e.g. PrimaryMachineAdapter).</li>
+                <li>Factory return type annotated as MachineAdapter. Done when: hardware layer naming and docs match adapter pattern, existing tests pass.</li>
+            </ul>
+            <h3>Phase 3: Behavior Tree Replaces High-Level Flow</h3>
+            <ul>
+                <li>Use BT library to define “one cycle main flow” and “recovery”; implement custom nodes (WaitLaunchNode, ExecuteAndDetectNode, SubmitResultNode, ErrorRecoveryNode).</li>
+                <li>In tree_builder build main tree: Sequence/Selector, e.g. “WaitLaunch → ExecuteAndDetect → SubmitResult → (on failure, ErrorRecovery subtree)”.</li>
+                <li>Change flow controller “run one cycle” to: on cycle-start event set blackboard, then <strong>tick the behavior tree</strong> until SUCCESS/FAILURE.</li>
+                <li>Done when: one cycle is driven by the BT, recovery is expressed inside the BT.</li>
+            </ul>
+            <h3>Phase 4: Observer Pattern for Results and Errors</h3>
+            <ul>
+                <li>On detect complete use <code>event_bus.publish(RESULT_READY, result)</code>; SubmitResultNode or a subscriber subscribes to RESULT_READY and calls backend API.</li>
+                <li>On error use <code>event_bus.publish(ERROR, ...)</code>; subscribers to ERROR send error signal and trigger failover when appropriate.</li>
+                <li>Done when: results and errors go through events; behavior matches pre-refactor.</li>
+            </ul>
+            <h3>Phase 5: (Optional) Strategy Pattern and Documentation</h3>
+            <p>Extract “cycle policy” or “scoring rules” into CyclePolicy / ScoringStrategy; update README / architecture doc. Done when: optional extension points in place, docs match implementation, tests pass.</p>
+            <h3>Phase 6: (Optional) Operator Input Adapter (Manual Mode)</h3>
+            <p>Add <code>OPERATOR_INPUT</code> to topics; add <code>input_adapter.py</code>; support <code>--mode manual</code> in main or flow controller. Done when: manual mode is optional, operator input decoupled via EventBus.</p>
+            <hr>
+
+            <h2>5. Pattern-to-Change Summary</h2>
+            <table>
+                <thead>
+                    <tr><th>Pattern</th><th>Corresponding idea</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Behavior tree</strong></td><td>Flow controller ticks BT; tree_builder + nodes define main flow and recovery.</td></tr>
+                    <tr><td><strong>Pub/Sub</strong></td><td>event_bus + topics; WebSocket/MQTT publish; flow controller/BT subscribe.</td></tr>
+                    <tr><td><strong>Adapter</strong></td><td>MachineAdapter interface + concrete device adapters; upper layer sees trigger/is_ready/get_result.</td></tr>
+                    <tr><td><strong>Adapter (input)</strong></td><td>InputAdapter: read desk HID, publish OPERATOR_INPUT to EventBus; BT or subscribers drive manual flow.</td></tr>
+                    <tr><td><strong>Observer</strong></td><td>RESULT_READY / ERROR published by hardware or BT; SubmitResult / ErrorRecovery etc. subscribe and submit / signal / failover.</td></tr>
+                    <tr><td><strong>Strategy (optional)</strong></td><td>CyclePolicy / ScoringStrategy interface and default impl, injected by flow controller or BT.</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>6. Risks and Mitigations</h2>
+            <table>
+                <thead>
+                    <tr><th>Risk</th><th>Mitigation</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>BT library and existing asyncio</td><td>Wrap synchronous tick in asyncio.run or run BT tick in an executor; or use an async-capable BT extension.</td></tr>
+                    <tr><td>Event order and race conditions</td><td>Define topic and payload format clearly; use a single consumer or queue for ordering if needed; avoid heavy logic inside publish.</td></tr>
+                    <tr><td>BT debugging</td><td>Use tree visualization or dot export; log SUCCESS/FAILURE/RUNNING at key nodes.</td></tr>
+                    <tr><td>Over-abstracting</td><td>Implement event_bus as “minimum viable” first (single process, synchronous callbacks); confirm behavior, then consider cross-process or async.</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>7. Summary and Takeaways</h2>
+            <ul>
+                <li><strong>High level</strong>: Use a behavior tree for “one cycle + recovery,” to avoid state explosion and scattered flow logic.</li>
+                <li><strong>Mid level</strong>: Use an event bus and topics for Pub/Sub so WebSocket, MQTT, and hardware callbacks become “publish event”; flow layer only subscribes.</li>
+                <li><strong>Hardware</strong>: Use adapters (trigger / is_ready / get_result) so new devices mean new adapters; manual mode uses InputAdapter publishing OPERATOR_INPUT.</li>
+                <li><strong>Results and errors</strong>: Use observers (subscribe to RESULT_READY / ERROR) for “submit result” and “error signal / failover”—single responsibility, easy to test.</li>
+                <li><strong>Optional</strong>: Strategy pattern lets you swap “cycle policy” and “scoring rules” without changing the main flow skeleton.</li>
+            </ul>
+            <p>This layering and pattern set fits “device control + flow orchestration + backend integration” systems. If you maintain a similar architecture, you can start with mid-level Pub/Sub and hardware adapters, then add the behavior tree and observers step by step—keeping existing behavior while leaving room for future extension.</p>
+            <hr>
+            <p><a href="index.html" class="back-link" style="color:#667eea;">← Back to CV / Home</a></p>
+        </article>
+    </div>
+</body>
+</html>
