@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obscure but High-Potential Areas in Mathematics and Physics | Kevin Ting-Kai Kuo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px 30px;
+        }
+        .header h1 { font-size: 1.5em; margin-bottom: 8px; font-weight: 600; }
+        .header p { font-size: 0.95em; opacity: 0.9; }
+        .back-link {
+            display: inline-block; margin-top: 12px;
+            color: rgba(255,255,255,0.95); text-decoration: none; font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .article {
+            padding: 32px 40px 40px;
+            line-height: 1.7;
+        }
+        .article h2 {
+            font-size: 1.35em; color: #667eea;
+            margin: 28px 0 14px;
+            padding-bottom: 6px; border-bottom: 2px solid #e0e0e0;
+        }
+        .article h2:first-of-type { margin-top: 0; }
+        .article h3 { font-size: 1.1em; color: #764ba2; margin: 20px 0 10px; }
+        .article p { margin-bottom: 14px; }
+        .article ul { margin: 12px 0 16px 24px; }
+        .article li { margin-bottom: 8px; }
+        .article hr { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+        .article table {
+            width: 100%; border-collapse: collapse;
+            margin: 16px 0; font-size: 0.85em;
+        }
+        .article th, .article td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .article th {
+            background: #f5f5f5;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .article tr:nth-child(even) { background: #fafafa; }
+        .article strong { color: #333; }
+        @media (max-width: 768px) {
+            .article { padding: 24px 20px; }
+            .article table { font-size: 0.78em; }
+            .article th, .article td { padding: 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Obscure but High-Potential Areas in Mathematics and Physics</h1>
+            <p>Thematic families: categories &amp; logic, number theory &amp; spacetime, arithmetic &amp; symmetry, shape &amp; data, quantum information &amp; gravity, time &amp; causality, divergence &amp; non-perturbative, higher algebra.</p>
+            <a href="index.html" class="back-link">← Back to CV / Home</a>
+        </div>
+        <article class="article">
+            <h2>Introduction</h2>
+            <p>In mathematics and physics, “obscure” often means a very high barrier to entry or a field still at the threshold between abstract theory and real-world application. This document is <strong>not</strong> ordered by “depth”; it is organized by <strong>thematic families</strong>. Within each family, the areas are clearly related mathematically or physically (e.g. by generalization, duality, arithmetization, or different viewpoints), and the <strong>relations between them</strong> are briefly explained at the start of each family.</p>
+            <hr>
+
+            <h2>I. Categories, Logic, and the “Grammar of Physics”</h2>
+            <p><strong>Relations within this family</strong><br>This family starts from the “mathematics of relations”—category theory—and extends to “physical laws as logical necessity.” Applied category theory uses categories as a language for system design. Derived algebraic geometry is a higher version of algebraic geometry; derived stacks are “spaces of spaces” and are used to treat QFT anomalies and higher-dimensional supergravity rigorously. BPS states and vertex algebras in the derived setting encode quantum entanglement and symmetry breaking in algebraic form. The categorical semantics of derived stacks treats quantum gravity as a “logical system,” deriving laws using higher toposes without coordinates or time. Ontological logical geometry asks “which logical structures necessarily manifest as physics” and tries to derive the speed of light and the Planck constant from pure logic. Semantic quantization, HoTT in quantum gravity, and self-awareness physics in arithmetic toposes share the idea that the “grammar” of the universe (types, propositions, internal logic) is more fundamental than “objects.” Homotopy probability theory lifts probability to “spaces with shape” to accommodate quantum entanglement. Quantum toposes on noncommutative spacetime use topos theory to rewrite logic at the Planck scale.</p>
+            <p><strong>Overview</strong><br>Category theory studies relations between structures; it serves as a language for system design and is used in quantum circuit design. Derived algebraic geometry and derived stacks are central to QFT rigor and the microscopic structure of spacetime. BPS operators and vertex algebras describe the topological-geometric origin of entanglement and black-hole entropy. Categorical semantics of derived stacks treats quantum gravity as a logical system. Ontological logical geometry attempts to derive physical constants from pure logic. Semantic quantization and HoTT treat quantum states as grammatical structure; self-awareness physics in arithmetic toposes views consciousness as a sheaf in the topos. Homotopy probability theory uses higher groupoids for “probability with shape.” Quantum toposes on noncommutative spacetime rewrite logic where coordinates do not commute.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>Applied category theory</td><td>Mathematics of relations as system language</td><td>Very high</td><td>Software architecture, quantum circuits</td></tr>
+                    <tr><td>Derived algebraic geometry, derived stacks</td><td>Higher algebraic geometry; QFT anomalies</td><td>Very high</td><td>QFT rigor, supergravity, meta-template for laws</td></tr>
+                    <tr><td>BPS states / vertex algebras (derived)</td><td>Algebraic formulation of entanglement in derived categories</td><td>Very high</td><td>Black-hole entropy, symmetry breaking</td></tr>
+                    <tr><td>Categorical semantics of derived stacks</td><td>Logical system version for quantum gravity</td><td>Very high</td><td>Laws without coordinates; universe’s “source code”</td></tr>
+                    <tr><td>Ontological logical geometry</td><td>Physics as logical necessity</td><td>Very high</td><td>Logical origin of c and ℏ</td></tr>
+                    <tr><td>Semantic quantization, HoTT, arithmetic topos consciousness</td><td>Universe as grammar; types, propositions, sheaves</td><td>High–very high</td><td>Background-independent quantum gravity, mathematics of consciousness</td></tr>
+                    <tr><td>Homotopy probability theory</td><td>Categorification of probability: probability as space</td><td>High</td><td>Probability theory for quantum entanglement</td></tr>
+                    <tr><td>Noncommutative quantum topos</td><td>Pointless, noncommutative + topos logic</td><td>Very high</td><td>Quantum gravity, propositions as topological shape</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>II. Number Theory and Spacetime: p-adics, Adeles, Holography, F₁, and the Void</h2>
+            <p><strong>Relations</strong><br>This family uses the <strong>structure of numbers</strong> (primes, number fields) to redefine or supplement “real continuous spacetime.” p-adic physics replaces the reals with p-adic numbers as spacetime coordinates (ultrametric, tree-like). Adelic string theory packages the reals and all p-adics into the adeles. Arithmetic holography treats the holographic principle as a number-theoretic phenomenon. Non-Archimedean quantum gravity and p-adic imaginary time describe space and time in p-adic terms (black-hole interiors, information paradox). Non-Archimedean neurogeometry applies p-adic geometry to cognition. The field with one element F₁ is linked to the Riemann hypothesis. Absolute arithmetic, void mechanics, and empty schemes study geometry when “1” or points are absent; quantum logical sheaves study spontaneous cohomology fluctuations in the void.</p>
+            <p><strong>Overview</strong><br>p-adic physics simplifies calculations in quantum gravity and string theory. Adelic string theory unifies discreteness and continuity via the adelic product formula. Arithmetic holography reframes gravity and Λ as number-theoretic symmetry breaking. Non-Archimedean quantum gravity and p-adic imaginary time address black-hole interiors and the information paradox. F₁ could turn the Riemann hypothesis into a geometric problem. Void mechanics and empty schemes argue that existence is mathematically unstable; empty schemes may explain vacuum energy via derived categories.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>p-adic physics</td><td>Spacetime geometry for a single prime</td><td>High</td><td>Planck-scale structure, computational simplification</td></tr>
+                    <tr><td>Adelic string theory, arithmetic holography</td><td>Unification of number fields; holography as boundary</td><td>Very high</td><td>Gravity as number theory, meaning of Λ</td></tr>
+                    <tr><td>Non-Archimedean quantum gravity, p-adic imaginary time</td><td>Dynamics and time in p-adic spacetime</td><td>Very high</td><td>Black-hole interior, information paradox</td></tr>
+                    <tr><td>Non-Archimedean neurogeometry</td><td>p-adic geometry applied to brain and cognition</td><td>High</td><td>Number-theoretic shape of cognition / AI</td></tr>
+                    <tr><td>Field F₁, absolute arithmetic</td><td>“Field” below the integers; no addition / no 1</td><td>Very high</td><td>Riemann hypothesis, grand unification</td></tr>
+                    <tr><td>Empty schemes, void mechanics, characteristic-zero quantum sheaves</td><td>Geometry and logic with no points, no 1, no energy</td><td>Very high</td><td>Vacuum energy, existence as instability</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>III. Arithmetic and Symmetry: IUT, Langlands, Motives, Arithmetic Topology</h2>
+            <p><strong>Relations</strong><br>This family centers on the <strong>correspondence between number theory and symmetry</strong>. IUT (Mochizuki) proves the abc conjecture by deconstructing addition and multiplication. Inter-universal logic and hyper-algebraic geometry extend this; IUT applications target post-quantum cryptography. The Langlands program links number theory with representation theory; entanglement-sensitive and geometric quantum Langlands connect to black-hole information and S-duality. Motives unify number theory and topology; motivic homotopy, motivic Feynman integrals, and motivic cosmology tie physical constants and cosmic parameters to Galois groups and L-functions. Arithmetic topology builds a “primes = knots” analogy. Arithmetic symmetry breaking and meta–class field theory cosmology view the Big Bang and cosmic structure as number-theoretic evolution.</p>
+            <p><strong>Overview</strong><br>IUT rewrites the integers in new language (anabelian geometry); inter-universal logic considers logic and arithmetic across mathematical universes. Langlands reveals deep links between number theory and symmetry; motivic methods express constants and amplitudes via motives and Galois groups. Arithmetic topology gives geometric intuition for primes; arithmetic cosmology reframes the universe’s evolution as class field theory.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>IUT, inter-universal logic, hyper-algebraic geometry, IUT applications</td><td>Deconstruction of add/multiply; gravity as logical friction; crypto</td><td>Very high</td><td>abc, Riemann, post-quantum crypto</td></tr>
+                    <tr><td>Langlands (entanglement, geometric quantum)</td><td>Number theory ↔ symmetry; entanglement and S-duality</td><td>Very high</td><td>Black-hole information, non-perturbative QFT</td></tr>
+                    <tr><td>Motivic homotopy, motivic Feynman, motivic cosmology, absolute Galois</td><td>Motives unifying number theory and geometry; constants = Galois / motives</td><td>Very high</td><td>Riemann hypothesis, cosmic source code</td></tr>
+                    <tr><td>Arithmetic topology</td><td>Primes and 3-dimensional knots</td><td>High</td><td>Prime distribution, geometric intuition</td></tr>
+                    <tr><td>Arithmetic symmetry breaking, meta–class field cosmology</td><td>Number-theoretic view of Big Bang and cosmic structure</td><td>Very high</td><td>Unification of forces, fate of the universe</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>IV. Shape, Topology, and Data</h2>
+            <p><strong>Relations</strong><br>This family focuses on <strong>shape and topology</strong> in data, AI, and physics. Topological data analysis (TDA) uses persistent homology to study the shape of data. Geometric deep learning brings differential geometry and symmetry into neural networks for graphs and manifolds. Computational conformal geometry algorithmizes Riemann surface theory. Wild topology studies pathological, fractal spaces; wild algebraic geometry studies irregular singularities and links to prime distribution and Stokes phenomenon. Exotic smooth structures on R⁴ are a 4-dimensional topological peculiarity, possibly related to spacetime and dark matter.</p>
+            <p><strong>Overview</strong><br>TDA is applied in biomedicine and LLM representations. Geometric deep learning is used for materials and proteins. Computational conformal geometry achieves high accuracy in medical imaging. Wild topology and wild algebraic geometry apply to non-equilibrium and quantum chaos. Exotic 4-manifolds may relate to dark matter and the cosmological constant.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>Topological data analysis</td><td>Using topology to see shape of data</td><td>High</td><td>Precision medicine, AI interpretability</td></tr>
+                    <tr><td>Geometric deep learning</td><td>Symmetry and curvature in neural networks</td><td>Medium–high</td><td>Materials, proteins, precision medicine</td></tr>
+                    <tr><td>Computational conformal geometry</td><td>Riemann surfaces as algorithms</td><td>High</td><td>Medical imaging, non-rigid deformation</td></tr>
+                    <tr><td>Wild topology, wild algebraic geometry</td><td>Pathological shapes and singularities</td><td>High</td><td>Quantum chaos, extreme geometry, Stokes</td></tr>
+                    <tr><td>Exotic 4-dimensional smooth structures</td><td>4D topological exception and physical spacetime</td><td>Very high</td><td>Dark matter, cosmological constant</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>V. Quantum Information, Gravity, and the “Geometry of Information”</h2>
+            <p><strong>Relations</strong><br>This family revolves around <strong>quantum information, entropy, and geometry</strong>. Quantum thermodynamics deals with heat and work in few-body systems. Quantum graph theory uses operator algebras for coherence and entanglement. Quantum information geometry studies “curvature of information” and connects to ER=EPR (spacetime from entanglement). Spectral networks and BPS counting draw geometric trajectories on Riemann surfaces for wall-crossing and microscopic state statistics. Quantum automorphic forms move black-hole entropy to “imaginary spacetime” with modular symmetry.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>Quantum thermodynamics</td><td>Heat and work in few-body systems</td><td>High</td><td>Quantum heat engines, quantum computer efficiency</td></tr>
+                    <tr><td>Quantum graph theory</td><td>Graphs and operator algebras; entanglement and capacity</td><td>High</td><td>Quantum communication, network topology</td></tr>
+                    <tr><td>Quantum information geometry</td><td>Curvature of information; ER=EPR</td><td>Very high</td><td>Spacetime from entanglement, geometric quantum gravity</td></tr>
+                    <tr><td>Spectral networks, BPS counting</td><td>Geometric trajectories, wall-crossing, state statistics</td><td>Very high</td><td>Microscopic states of black holes and vacuum</td></tr>
+                    <tr><td>Quantum automorphic forms</td><td>Number-theoretic formulation of black-hole entropy</td><td>Very high</td><td>Arithmetic nature of holographic principle</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>VI. Time, Causality, and Non-equilibrium</h2>
+            <p><strong>Relations</strong><br>This family rewrites <strong>time and causality</strong>. Dual-time topological geometry uses two coupled times for non-equilibrium and the arrow of time. Topos-theoretic branching time treats time as a logical lattice. Complex-time manifolds treat time as the complex plane. Modular time and emergent intrinsic time reduce time to algebra or logic. Quantum retrocausality allows future-to-present components. Ergodic theory of adaptive systems studies systems whose rules change in time (AGI, thermodynamics of consciousness).</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>Dual-time topological geometry</td><td>Two coupled times; non-equilibrium and entropy</td><td>High</td><td>Arrow of time, quantum memory</td></tr>
+                    <tr><td>Topos branching time</td><td>Time as logical lattice; causality can collapse</td><td>Very high</td><td>Logical formulation of non-locality</td></tr>
+                    <tr><td>Complex-time manifolds</td><td>Time as complex plane; past and future connected</td><td>High</td><td>Quantum tunneling, black-hole entropy in imaginary time</td></tr>
+                    <tr><td>Modular time, emergent intrinsic time</td><td>Time as product of algebra / logic</td><td>Very high</td><td>Time as illusion, background independence</td></tr>
+                    <tr><td>Quantum retrocausality</td><td>Future affects present; weak measurement</td><td>Medium–high</td><td>Cross-temporal information, new measurement</td></tr>
+                    <tr><td>Adaptive ergodic theory</td><td>Long-term behavior of systems whose rules change</td><td>High</td><td>Physical basis of AGI, thermodynamics of consciousness</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>VII. Divergence, Non-perturbative Effects, and the Geometrization of Field Theory</h2>
+            <p><strong>Relations</strong><br>This family deals with <strong>divergence of perturbative series, non-perturbative effects, and rigorization/geometrization of QFT</strong>. Resurgence theory encodes non-perturbative information in the way series diverge. Radical trans-level symmetry incorporates non-perturbative coupling across levels. Constructive/axiomatic QFT builds field theory from axioms (e.g. Yang–Mills). Positive geometry and the amplituhedron write amplitudes as volumes of geometric bodies; spacetime is emergent. Stochastic PDEs add randomness to PDEs for turbulence, climate, finance.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>Resurgence, radical trans-level symmetry</td><td>Non-perturbative content in divergence; level coupling</td><td>Very high</td><td>Quark confinement, fine-tuning</td></tr>
+                    <tr><td>Constructive / axiomatic QFT</td><td>Building field theory from axioms</td><td>Very high</td><td>Yang–Mills, Millennium Prize</td></tr>
+                    <tr><td>Positive geometry, amplituhedron</td><td>Amplitude as geometric volume; emergent spacetime</td><td>Very high</td><td>Post-spacetime physics, computational simplification</td></tr>
+                    <tr><td>Stochastic PDEs</td><td>Mathematics of uncertainty and nonlinearity</td><td>Very high</td><td>Climate, turbulence, finance</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>VIII. Algebraic Roots of Symmetry: L∞ and Deformation Quantization</h2>
+            <p><strong>Relations</strong><br>This family views <strong>symmetry and quantization</strong> from <strong>higher algebra</strong>. Higher gauge symmetry collapse in L∞ structures assumes infinitely many symmetries (L∞ algebras) that collapsed into the few forces we see. Higher deformation quantization views the classical-to-quantum transition as deformation of the whole categorical structure—a basis for topological quantum computation.</p>
+            <table>
+                <thead><tr><th>Subfield</th><th>Relation to family core</th><th>Difficulty</th><th>Potential &amp; aims</th></tr></thead>
+                <tbody>
+                    <tr><td>L∞ higher symmetry collapse</td><td>Symmetry collapsing from infinite-dimensional algebra</td><td>Very high</td><td>Theory of everything, particles from algebra</td></tr>
+                    <tr><td>Higher deformation quantization</td><td>Quantization as categorical deformation</td><td>Very high</td><td>Topological quantum computation, multi-level consistency</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>IX. Selected References</h2>
+            <p>Most areas sit at the forefront; many do not yet have standard textbooks. Literature is scattered across arXiv and masters’ manuscripts.</p>
+            <p><strong>Categories, logic, derived geometry</strong><br>Fong &amp; Spivak (2019) <em>Seven Sketches in Compositionality</em>; Lurie (2009) <em>Higher Topos Theory</em>; Toën (2014) “Derived Algebraic Geometry”, EMS Surveys; Döring &amp; Isham (2008) “A Topos Foundation for Theories of Physics”, CMP.</p>
+            <p><strong>Number theory, spacetime, F₁</strong><br>Connes (1994) <em>Noncommutative Geometry</em>; Connes &amp; Consani (2019) “The Arithmetic Site”; Scholze (2012) “Perfectoid Spaces”; Grothendieck <em>Récoltes et Semailles</em>, <em>Esquisse d'un Programme</em>.</p>
+            <p><strong>IUT, Langlands, motives, arithmetic topology</strong><br>Mochizuki “Inter-universal Teichmüller Theory I–IV”, RIMS; Morishita (2012) <em>Knots and Primes</em>, Springer.</p>
+            <p><strong>Shape and data</strong><br>Carlsson (2009) “Topology and data”, BAMS; Bronstein et al. (2021) “Geometric Deep Learning...”, arXiv:2104.13478.</p>
+            <p><strong>Divergence and non-perturbative</strong><br>Aniceto et al. (2019) “A Primer on Resurgence in QFT”, Physics Reports; Arkani-Hamed &amp; Trnka (2014) “The Amplituhedron”, JHEP.</p>
+            <p><strong>How to keep track</strong><br>Subscribe to arXiv sections math.AG, math.NT, math.CT, hep-th; follow workshops at IHÉS, IAS, RIMS; n-Category Café and John Baez’s <em>This Week's Finds in Mathematical Physics</em>.</p>
+            <hr>
+
+            <h2>X. Related GitHub Projects</h2>
+            <table>
+                <thead><tr><th>Area</th><th>GitHub keywords / projects</th><th>Suggested language</th><th>Audience</th></tr></thead>
+                <tbody>
+                    <tr><td>Topological data analysis</td><td>Giotto-tda, GUDHI, Ripser</td><td>Python / C++</td><td>Data scientists</td></tr>
+                    <tr><td>Applied category theory / HoTT</td><td>HoTT/HoTT, UniMath, AlgebraicJulia</td><td>Coq / Julia</td><td>Systems architects, formalization</td></tr>
+                    <tr><td>Geometric deep learning</td><td>PyTorch Geometric (PyG), DGL</td><td>Python (PyTorch)</td><td>AI engineers</td></tr>
+                    <tr><td>Positive geometry / particle physics</td><td>claudio-coriano/Amplituhedron, ocean-of-forms/panspermia</td><td>—</td><td>Particle physics, geometry</td></tr>
+                    <tr><td>Resurgence theory</td><td>multi-resurgence, Symbolic.jl</td><td>Mathematica / Python / Julia</td><td>Theoretical physicists</td></tr>
+                    <tr><td>Formal proof</td><td>leanprover-community/lean-liquid, mathlib</td><td>Lean / Coq</td><td>Mathematicians, logicians</td></tr>
+                </tbody>
+            </table>
+            <p>lean-liquid is a formalization of Scholze’s “liquid mathematics” in Lean 3 and is one of the flagship achievements of contemporary mathematical formalization.</p>
+            <hr>
+            <p><a href="index.html" style="color:#667eea; font-weight:500;">← Back to CV / Home</a></p>
+        </article>
+    </div>
+</body>
+</html>
