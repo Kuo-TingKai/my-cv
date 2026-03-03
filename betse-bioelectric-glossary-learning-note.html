@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETSE Bioelectric Simulation — Learning Note &amp; Glossary | Kevin Ting-Kai Kuo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px 30px;
+        }
+        .header h1 { font-size: 1.5em; margin-bottom: 8px; font-weight: 600; }
+        .header p { font-size: 0.95em; opacity: 0.9; }
+        .back-link {
+            display: inline-block; margin-top: 12px;
+            color: rgba(255,255,255,0.95); text-decoration: none; font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .article {
+            padding: 32px 40px 40px;
+            line-height: 1.7;
+        }
+        .article h2 {
+            font-size: 1.35em; color: #667eea;
+            margin: 28px 0 14px;
+            padding-bottom: 6px; border-bottom: 2px solid #e0e0e0;
+        }
+        .article h2:first-of-type { margin-top: 0; }
+        .article h3 { font-size: 1.1em; color: #764ba2; margin: 20px 0 10px; }
+        .article p { margin-bottom: 14px; }
+        .article ul { margin: 12px 0 16px 24px; }
+        .article li { margin-bottom: 8px; }
+        .article hr { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+        .article table {
+            width: 100%; border-collapse: collapse;
+            margin: 16px 0; font-size: 0.85em;
+        }
+        .article th, .article td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .article th {
+            background: #f5f5f5;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .article tr:nth-child(even) { background: #fafafa; }
+        .article strong { color: #333; }
+        .article a { color: #667eea; text-decoration: none; }
+        .article a:hover { text-decoration: underline; }
+        .article code { font-family: Consolas, Monaco, monospace; font-size: 0.9em; background: #f5f5f5; padding: 1px 4px; border-radius: 3px; }
+        @media (max-width: 768px) {
+            .article { padding: 24px 20px; }
+            .article table { font-size: 0.78em; }
+            .article th, .article td { padding: 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>BETSE Bioelectric Simulation: A Learning Note &amp; Glossary</h1>
+            <p>Structured notes and key terms for the Bioelectric Tissue Simulation Engine: ions, channels, DEC, and workflow.</p>
+            <a href="index.html" class="back-link">← Back to CV / Home</a>
+        </div>
+        <article class="article">
+            <p><strong>Structured learning notes and a concise glossary of domain terms around <a href="https://github.com/betsee/betse" target="_blank" rel="noopener">BETSE</a> (Bioelectric Tissue Simulation Engine)—for reading the docs and papers with less friction.</strong></p>
+            <hr>
+
+            <h2>1. What BETSE Is and Why the Terms Matter</h2>
+            <p>BETSE is an <strong>open-source, cross-platform 2D multiphysics simulator</strong> for life-sciences problems: electrodiffusion, ion channels, gene regulatory and biochemical reaction networks. It uses <strong>discrete exterior calculus (DEC)</strong> on a mesh to evolve voltages, ion concentrations, and flows in tissue. The vocabulary below is the same one used in the codebase, config files, and the Pietak–Levin papers; having a compact reference in learning-note form makes it easier to follow tutorials and supplements.</p>
+            <p><strong>Takeaway:</strong> Treat this note as a <strong>cheat sheet</strong> while you run <code>betse try</code>, read the YAML options, or skim the validation sections in the papers.</p>
+            <hr>
+
+            <h2>2. Core Simulation Concepts</h2>
+            <table>
+                <thead><tr><th>Term</th><th>Meaning (learning-note style)</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>BETSE</strong></td><td>Bioelectric Tissue Simulation Engine: 2D DEC-based simulator for ions, channels, gap junctions, and (optionally) GRNs and metabolism.</td></tr>
+                    <tr><td><strong>Discrete Exterior Calculus (DEC)</strong></td><td>A mathematical framework on a discrete grid (mesh) that handles differential forms—BETSE uses it to compute potentials, concentrations, and flows in space and time.</td></tr>
+                    <tr><td><strong>Multiphysics simulation</strong></td><td>Coupling several physical processes in one run (e.g. electricity, diffusion, osmosis, reactions).</td></tr>
+                    <tr><td><strong>2D cellular collective</strong></td><td>A sheet of cells in 2D geometry, connected by gap junctions; BETSE models this simplified tissue.</td></tr>
+                    <tr><td><strong>YAML configuration</strong></td><td>Human-readable config files (ions, channel types, boundaries, etc.) that drive the simulation.</td></tr>
+                    <tr><td><strong>Bitmask image</strong></td><td>An image whose pixel values define regions (e.g. cell cluster shape, channel regions); BETSE can import these to set geometry and local properties.</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>3. Ions, Potentials, and Transport</h2>
+            <table>
+                <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Bioelectric / bioelectrical</strong></td><td>Electrical phenomena in living tissue arising from ion distributions and membrane potentials; tightly linked to development, regeneration, and wound healing.</td></tr>
+                    <tr><td><strong>Electrodiffusion</strong></td><td>Transport of ions driven by both concentration gradient and electric field (diffusion + electromigration).</td></tr>
+                    <tr><td><strong>Electro-osmosis</strong></td><td>Flow of a charged fluid (e.g. extracellular solution) driven by an applied electric field.</td></tr>
+                    <tr><td><strong>Resting potential</strong></td><td>Steady transmembrane voltage when the cell is unstimulated; maintained by channels and pumps.</td></tr>
+                    <tr><td><strong>Membrane permeability</strong></td><td>How easily a given ion or molecule crosses the membrane; affects flux and potential.</td></tr>
+                    <tr><td><strong>Ion concentration</strong></td><td>Concentration of an ion inside or outside the cell; in BETSE it varies in time and space.</td></tr>
+                    <tr><td><strong>Transepithelial potential (TEP / TEPD)</strong></td><td>Steady voltage difference across an epithelial layer; reflects polarized distribution of pumps and channels.</td></tr>
+                    <tr><td><strong>Local field potential</strong></td><td>Aggregate electrical activity of a local group of cells; used in neural or epithelial measurements and in BETSE.</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Ions BETSE can simulate:</strong> Na⁺, K⁺, Cl⁻, Ca²⁺, H⁺, anionic protein (P⁻), HCO₃⁻, and others as configured.</p>
+            <hr>
+
+            <h2>4. Channels, Pumps, and Cell–Cell Coupling</h2>
+            <table>
+                <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Voltage-gated ion channel</strong></td><td>Channel whose open/closed state depends on membrane voltage; basis of action potentials and many bioelectric patterns. BETSE supports several in Hodgkin–Huxley form.</td></tr>
+                    <tr><td><strong>Hodgkin–Huxley (HH) formalism</strong></td><td>Classic model of channel gating with state variables (e.g. m, n, h); parameters often from resources like Channelpedia.</td></tr>
+                    <tr><td><strong>Ion pump</strong></td><td>Protein that actively transports ions across the membrane using ATP (e.g. Na⁺/K⁺-ATPase), maintaining gradients.</td></tr>
+                    <tr><td><strong>Ion exchanger</strong></td><td>Membrane protein that uses one ion’s gradient to drive another ion in the opposite direction (no direct ATP).</td></tr>
+                    <tr><td><strong>Gap junction</strong></td><td>Pore between adjacent cells allowing ions and small molecules to pass; creates electrical and metabolic coupling.</td></tr>
+                    <tr><td><strong>Tight junction</strong></td><td>Sealing structure at epithelial cell edges; limits paracellular flow and helps maintain TEP.</td></tr>
+                    <tr><td><strong>Ephaptic coupling</strong></td><td>Cell–cell electrical interaction via the extracellular field rather than via gap junctions.</td></tr>
+                </tbody>
+            </table>
+            <p>BETSE allows configuring channel types (e.g. HCN1/2/4, L/T/P/Q-type Ca²⁺, Kir2.1, Kv, Nav, leak, Ca²⁺-gated K⁺) and pumps/exchangers (Ca²⁺-ATPase, Na⁺/K⁺-ATPase, V-ATPase, H⁺/K⁺-ATPase, etc.).</p>
+            <hr>
+
+            <h2>5. Morphology and Guidance</h2>
+            <table>
+                <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Galvanotaxis</strong></td><td>Migration or polarization of cells/tissue along an applied or endogenous electric field; relevant to wound healing, regeneration, and axis formation.</td></tr>
+                    <tr><td><strong>Morphogenesis</strong></td><td>The emergence and maintenance of organism shape and structure; BETSE-related work often asks how bioelectric patterns <em>instruct</em> morphology.</td></tr>
+                    <tr><td><strong>Positional information</strong></td><td>Signals (which can include bioelectric gradients) that tell a cell “where it is” in the tissue and influence fate and form.</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>6. Gene and Biochemical Networks</h2>
+            <table>
+                <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Gene regulatory network (GRN)</strong></td><td>Network of genes regulating each other via transcription factors and signaling molecules; BETSE’s <code>sim-grn</code> subcommand simulates such networks.</td></tr>
+                    <tr><td><strong>Biochemical reaction network</strong></td><td>Network of metabolic and signaling reactions; can be modeled at cellular or mitochondrial level and integrated with channels and gap junctions in BETSE.</td></tr>
+                    <tr><td><strong>Metabolism</strong></td><td>Network of material and energy conversion in the cell; in BETSE it can be coupled to bioelectric and ion concentration dynamics.</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>7. BETSE Workflow (CLI Terms)</h2>
+            <table>
+                <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Seed</strong></td><td>Phase that generates the initial cell cluster geometry (e.g. from config or randomness).</td></tr>
+                    <tr><td><strong>Init (initialization)</strong></td><td>Computes steady-state concentrations and potentials on the seeded geometry as the starting point for time evolution.</td></tr>
+                    <tr><td><strong>Sim (simulation)</strong></td><td>Time-stepping run of the full bioelectric (and optional GRN/reaction) simulation.</td></tr>
+                    <tr><td><strong>Config</strong></td><td>Creating or pointing to the YAML config file for a run.</td></tr>
+                    <tr><td><strong>Plot</strong></td><td>Exporting results from seed/init/sim as figures, animations, or CSV.</td></tr>
+                    <tr><td><strong>Headless mode</strong></td><td>No GUI; compute and write outputs only (e.g. for servers or batch runs).</td></tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>8. Validation and Use Cases (from the docs)</h2>
+            <p>Typical validation/application contexts mentioned in BETSE papers and docs:</p>
+            <ul>
+                <li><strong>Transmembrane voltage changes</strong> — How membrane potential responds to single-cell state or environmental ion concentration changes.</li>
+                <li><strong>Transepithelial potential difference (TEPD)</strong> — Comparing predicted TEP with experiments.</li>
+                <li><strong>Bioelectrical signals at wound sites</strong> — Large-scale wound fields and repair.</li>
+            </ul>
+            <hr>
+
+            <h2>9. References and Further Reading</h2>
+            <ul>
+                <li><strong>Project:</strong> <a href="https://github.com/betsee/betse" target="_blank" rel="noopener">BETSE on GitHub</a></li>
+                <li><strong>Intro paper:</strong> Pietak, A. &amp; Levin, M. (2016). <em>Exploring instructive physiological signaling with the bioelectric tissue simulation engine (BETSE).</em> <em>Frontiers in Bioengineering and Biotechnology</em>, 4(55). (Check the <strong>Supplement</strong> for full math and formalisms.)</li>
+                <li><strong>GRN and reactions:</strong> Pietak &amp; Levin (2017), <em>J. R. Soc. Interface</em> — bioelectric + gene/reaction networks.</li>
+                <li><strong>Positional information and regeneration:</strong> Pietak &amp; Levin (2018), <em>Progress in Biophysics and Molecular Biology</em>.</li>
+            </ul>
+            <p>For precise equations and parameter definitions, use the official BETSE docs and the <strong>Supplement</strong> of each paper.</p>
+
+            <p><a href="index.html" style="color:#667eea; font-weight:500;">← Back to CV / Home</a></p>
+        </article>
+    </div>
+</body>
+</html>
